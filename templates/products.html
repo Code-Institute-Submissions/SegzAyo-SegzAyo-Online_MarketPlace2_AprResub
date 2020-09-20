@@ -1,17 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Products</title>
-</head>
-<body>
-    {% for task in tasks %}
+{% extends "base.html" %}
+{% block content %}
+
+    <h2>I am extending the base template</h2>
+    
+    {% for product in products %}
         {{ product.product_name }}<br>
         {{ product.category }}<br>
         {{ product.product_price }}<br>
         {{ product.product_description }}<br>
     {% endfor %}
+
+{% endblock %}
     
 </body>
 </html>
