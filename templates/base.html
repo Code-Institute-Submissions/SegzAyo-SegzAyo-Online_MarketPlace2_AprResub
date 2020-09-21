@@ -12,6 +12,37 @@
     <title>Products</title>
 </head>
 <body>
+    <header>
+    <!-------- top navbar ---->
+        <nav class="nav-extended text-shadow blue accent-2">
+            <div class="nav-wrapper">
+            <a href="#!" class="brand-logo">Market Place</a>
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="fas fa-bars"></i></a>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="{{ url_for('get_products') }}">Home</a></li>
+                <li><a href="#">Categories</a></li>
+                <li><a href="#">Sign in</a></li>
+                <li><a href="#">Sign out</a></li>
+                <li><a href="#">Register</a></li>
+                <li><a href="#">FAQs</a></li>
+                <li><a href="#">About Us</a></li>
+            </ul>
+            </div>
+        </nav>
+
+<!-------mobile side navbar-->
+  <ul class="sidenav" id="mobile-demo">
+        <li><h4 class="center-align light-blue-text text-darken-4">Market Place</h4></li>
+        <li><a href="{{ url_for('get_products') }}">Home</a></li>
+        <li><a href="#">Categories</a></li>
+        <li><a href="#">Sign in</a></li>
+        <li><a href="#">Sign out</a></li>
+        <li><a href="#">Register</a></li>
+        <li><a href="#">FAQs</a></li>
+        <li><a href="#">About Us</a></li>
+  </ul>
+    </header>
+
     <h1>I'm part of base template</h1>
     {% block content %}    
     {% endblock%}
