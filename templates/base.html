@@ -21,7 +21,7 @@
             <ul class="right hide-on-med-and-down">
                 <li><a href="{{ url_for('get_products') }}">Home</a></li>
                 <li><a href="#">Categories</a></li>
-                <li><a href="#">Sign in</a></li>
+                <li><a href="{{ url_for('login') }}">Log in</a></li>
                 <li><a href="#">Sign out</a></li>
                 <li><a href="{{ url_for('register') }}">Register</a></li>
                 <li><a href="#">FAQs</a></li>
@@ -35,7 +35,7 @@
         <li><h4 class="center-align light-blue-text text-darken-4">Market Place</h4></li>
         <li><a href="{{ url_for('get_products') }}">Home</a></li>
         <li><a href="#">Categories</a></li>
-        <li><a href="#">Sign in</a></li>
+        <li><a href="{{ url_for('login') }}">Log in</a></li>
         <li><a href="#">Sign out</a></li>
         <li><a href="{{ url_for('register') }}">Register</a></li>
         <li><a href="#">FAQs</a></li>
