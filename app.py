@@ -75,7 +75,7 @@ def login():
             
     return render_template("login.html")
 
-@app.route("/profile/<username>", method=["GET", "POST"])
+@app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
     #Display current user's username
     username= mongo.db.sellerMDB.find_one(
