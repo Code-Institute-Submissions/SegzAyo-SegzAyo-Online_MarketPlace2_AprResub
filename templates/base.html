@@ -22,7 +22,7 @@
                 <li><a href="{{ url_for('get_products') }}">Home</a></li>
                 <li><a href="#">Categories</a></li>
                 <li><a href="{{ url_for('login') }}">Log in</a></li>
-                <li><a href="#">Sign out</a></li>
+                <li><a href="{{ url_for('sign_out')}}">Sign out</a></li>
                 <li><a href="{{ url_for('register') }}">Register</a></li>
                 <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
                 <li><a href="#">FAQs</a></li>
