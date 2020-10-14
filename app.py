@@ -20,8 +20,11 @@ mongo = PyMongo(app)
 @app.route("/")
 @app.route("/get_products")
 def get_products():
-    products = mongo.db.productMDB.find()
-    return render_template("products.html", products=products)
+    products_data = mongo.db.productMDB.find()
+
+    return render_template("products.html", products=products_data, userdata=data)
+
+
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
@@ -78,8 +81,15 @@ def login():
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
     #Display current user's username
-    username= mongo.db.sellerMDB.find_one(
+    try:
+        username= mongo.db.sellerMDB.find_one(
         {"username" : session["user"]})["username"]
+    except Exception as e:
+        flash("Username not found")
+        print(str(e))
+        return redirect(url_for("login"))
+
+    
     if session["user"]:
         return render_template("profile.html", username=username)
 
