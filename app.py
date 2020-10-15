@@ -5,6 +5,8 @@ from flask import (
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
+from models import sellerMDB
+
 if os.path.exists("env.py"):
     import env
 
@@ -29,22 +31,29 @@ def get_products():
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
+        seller_name_v = request.form.get("seller_name")
+        seller_email_v = request.form.get("email")
+        seller_phone_v = request.form.get("phone")
+        seller_city_v = request.form.get("city")
+        password_v = request.form.get("password")
+
         # check if username already exists in db
-        existing_user = mongo.db.sellerMDB.find_one(
-            {"username": request.form.get("username").lower()})
+        existing_seller = sellerMDB.objects(seller_email=seller_email_v).first()
 
         if existing_user:
             flash("Username already exists")
             return redirect(url_for("register"))
 
-        register = {
-            "username": request.form.get("username").lower(),
-            "password": generate_password_hash(request.form.get("password"))
-        }
-        mongo.db.sellerMDB.insert_one(register)
+        new_seller = sellerMDB(seller_name=seller_name_v, seller_email=seller_email_v, 
+        seller_city=seller_city_v, seller_phone=seller_phone_v)
+
+        new_seller.set_password(password_v)
+
+        new_seller.save()
+
 
         # put the new user into 'session' cookie
-        session["user"] = request.form.get("username").lower()
+        session["user"] = new_seller.seller_name
         flash("Registration Successful!")
         return redirect(
             url_for("profile", username=session["user"]))
