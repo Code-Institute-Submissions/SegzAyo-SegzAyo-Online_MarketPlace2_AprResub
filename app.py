@@ -5,7 +5,7 @@ from flask import (
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
-from models import sellerMDB
+from models import Seller
 
 if os.path.exists("env.py"):
     import env
@@ -24,7 +24,7 @@ mongo = PyMongo(app)
 def get_products():
     products_data = mongo.db.productMDB.find()
 
-    return render_template("products.html", products=products_data, userdata=data)
+    return render_template("products.html", products=products_data)
 
 
 
@@ -38,13 +38,13 @@ def register():
         password_v = request.form.get("password")
 
         # check if username already exists in db
-        existing_seller = sellerMDB.objects(seller_email=seller_email_v).first()
+        existing_seller = Seller.objects(seller_email=seller_email_v).first()
 
-        if existing_user:
+        if existing_seller:
             flash("Username already exists")
             return redirect(url_for("register"))
 
-        new_seller = sellerMDB(seller_name=seller_name_v, seller_email=seller_email_v, 
+        new_seller = Seller(seller_name=seller_name_v, seller_email=seller_email_v, 
         seller_city=seller_city_v, seller_phone=seller_phone_v)
 
         new_seller.set_password(password_v)
@@ -62,19 +62,17 @@ def register():
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
-        # check if username exists in db
-        existing_user = mongo.db.sellerMDB.find_one(
-            {"username": request.form.get("username").lower()})
+        email_v = request.form.get("email")
+        password_v = request.form.get("password")
+        # check if email and password exists in db
+        existing_seller = Seller.objects(seller_email=email_v).first()
 
-        if existing_user:
+        if existing_seller:
             # ensure hashed password matches user input
-            if check_password_hash(
-                existing_user["password"], request.form.get("password")):
-                    session["user"] = request.form.get("username").lower()
-                    flash("Welcome, {}".format(
-                        request.form.get("username")))
-                    return redirect(url_for(
-                        "profile", username=session["user"]))    
+            password_valid = existing_seller.check_password(password_v)
+            if password_valid:
+               session["user"] = existing_seller.seller_name
+               flash(f"Welcome {existing_seller.seller_name}")    
             else:
                 # invalid password match
                 flash("Incorrect Username and/or Password")
@@ -91,7 +89,7 @@ def login():
 def profile(username):
     #Display current user's username
     try:
-        username= mongo.db.sellerMDB.find_one(
+        username= mongo.db.Seller.find_one(
         {"username" : session["user"]})["username"]
     except Exception as e:
         flash("Username not found")

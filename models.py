@@ -8,11 +8,11 @@ if os.path.exists("env.py"):
 MONGO_URI=os.environ["MONGO_URI"]    
 connect('marketPlaceDB', host=MONGO_URI)
 
-class sellerMDB(Document):
+class Seller(Document):
     seller_name = StringField(required=True, max_length=50)
     seller_city = StringField(required=True)
     seller_email = EmailField(required=True)
-    seller_city_phone = StringField(required=True)
+    seller_phone = StringField(required=True)
     seller_listings = ListField(StringField(), default=[])
     password_hash = StringField()
     
