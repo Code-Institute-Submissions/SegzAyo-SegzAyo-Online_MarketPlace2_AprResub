@@ -85,22 +85,36 @@ def login():
             
     return render_template("login.html")
 
-@app.route("/profile/<username>", methods=["GET", "POST"])
-def profile(username):
+@app.route("/users/<userId>")
+def profile(userId):
     #Display current user's username
-    try:
-        username= mongo.db.Seller.find_one(
-        {"username" : session["user"]})["username"]
-    except Exception as e:
-        flash("Username not found")
-        print(str(e))
-        return redirect(url_for("login"))
-
-    
-    if session["user"]:
-        return render_template("profile.html", username=username)
-
+    seller = Seller.objects(id=userId).first()
+    if seller:
+        return render_template("profile.html", seller=seller)
+    flash("User not found")    
     return redirect(url_for("login"))
+
+@app.route("/users/userId", methods=["PATCH"])
+def update_profile(userId):
+    seller_name_v = request.form.get("seller_name")
+    seller_email_v = request.form.get("email")
+    seller_phone_v = request.form.get("phone")
+    seller_city_v = request.form.get("city")
+    password_v = request.form.get("password") 
+
+    seller = Seller.objects(id=userId).first()
+    if seller:
+        seller.seller_name = seller_name_v
+        seller.email = seller_email_v
+        seller.phone = seller_phone_v
+        seller.city = seller_city_v
+        seller.password = password_v
+        seller.save()
+        flash("User profile updated")
+
+    return redirect(url_for("profile.html"))
+
+   
 
 
 @app.route("/sign_out")
