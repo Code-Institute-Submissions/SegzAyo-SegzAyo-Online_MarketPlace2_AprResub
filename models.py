@@ -23,3 +23,8 @@ class Seller(Document):
         is_valid = check_password_hash(self.password_hash, password)
         return is_valid
 
+class Product_listing(Document):
+    category = StringField(required=true)
+    product_name = StringField(required=true, max_length=50)
+    product_price = StringField(required=true)
+    product_description = StringField()

@@ -113,8 +113,25 @@ def update_profile(userId):
     })
     
 
-   
+@app.route("/list_product", methods=["GET", "POST"])
+def list_product():
+    if list_product == "POST":
+        category_v = request.form.get("category")
+        product_name_v = request.form.get("product_name")
+        product_price_V = request.form.get("product_price")
+        product_description_v = request.form.get("product_description")
+        # check if product is already listed
+        existing_product = product_listing.objects(product_name=product_name_v).first()
 
+        if existing_product:
+            flash("Product already listed")
+            return redirect(url_for("profile.html"))
+
+    new_listing = product_listing(category=category_v, product_name=product_name_v, 
+    product_price=product_price_v, product_description=product_description_v)
+
+    new_listing.save()
+    
 
 @app.route("/sign_out")
 def sign_out():
