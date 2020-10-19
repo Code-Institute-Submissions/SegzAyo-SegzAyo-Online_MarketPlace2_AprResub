@@ -11,5 +11,65 @@
       </div>
     </div>
   </div>
+<h3 class="center-align">Update profile</h3>
+<h2 id="success"></h2>
+<div class="row">
+    <form class="col s12 m8 offset-m2" action="" id="updateForm">
+      <div class="card-panel">
+      <!---- Update seller_name-->
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="fas fa-user-plus prefix light-blue-text text-darken-4"></i>
+                <input id="seller_name" name="seller_name" type="text" 
+                value="{{seller.seller_name}}" class="validate" required>
+                <label for="seller_name">Username</label>
+            </div>
+        </div>
+        <!---- Update seller_email-->
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="fas fa-user-plus prefix light-blue-text text-darken-4"></i>
+                <input id="email" name="email" type="email"
+                value="{{seller.seller_email}}" class="validate" required>
+                <label for="email">Email</label>
+            </div>
+        </div>
+        <!---- Update seller_password-->
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="fas fa-user-lock prefix light-blue-text text-darken-4"></i>
+                <input id="password" name="password" type="password" 
+                value="{{seller.password_hash}}" class="validate" required>
+                <label for="password">Password</label>
+            </div>
+      </div>
+      <!----Update seller_phone-->
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="fas fa-user-plus prefix light-blue-text text-darken-4"></i>
+                <input id="phone" name="phone" type="text"
+                value="{{seller.seller_phone}}" class="validate" required>
+                <label for="username">Phone</label>
+            </div>
+        </div>
+        <!----Update seller_city-->
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="fas fa-user-plus prefix light-blue-text text-darken-4"></i>
+                <input id="city" name="city" type="text"
+                value="{{seller.seller_city}}" class="validate" required>
+                <label for="city">City</label>
+            </div>
+        </div>
+        <input type="hidden" id="userId" value="{{seller.id}}"/>
+      <!---- Register button-->
+      <div class="row">
+        <button type="submit" id="updateBtn" class="col s12 btn-large light-blue darken-4 text-shadow">
+            Update profiles <i class="fas-fa-sign-in-alt"></i>
+        </button>
+      </div>
+      </div>
+    </form>
+  </div>
 
 {% endblock %}

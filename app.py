@@ -1,7 +1,7 @@
 import os
 from flask import (
     Flask, flash, render_template,
-    request, redirect, session, url_for)
+    request, redirect, session, url_for, jsonify)
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -54,9 +54,10 @@ def register():
 
         # put the new user into 'session' cookie
         session["user"] = new_seller.seller_name
+        session["userId"] = str(new_seller.id)
         flash("Registration Successful!")
         return redirect(
-            url_for("profile", username=session["user"]))
+            url_for("update_profile", username=session["user"]))
     return render_template("register.html")
 
 @app.route("/login", methods=["GET", "POST"])
@@ -72,7 +73,9 @@ def login():
             password_valid = existing_seller.check_password(password_v)
             if password_valid:
                session["user"] = existing_seller.seller_name
-               flash(f"Welcome {existing_seller.seller_name}")    
+               session["user_id"] = str(existing_seller.id)
+               flash(f"Welcome {existing_seller.seller_name}")
+               return render_template("profile.html", seller=existing_seller)    
             else:
                 # invalid password match
                 flash("Incorrect Username and/or Password")
@@ -85,34 +88,30 @@ def login():
             
     return render_template("login.html")
 
-@app.route("/users/<userId>")
-def profile(userId):
-    #Display current user's username
-    seller = Seller.objects(id=userId).first()
-    if seller:
-        return render_template("profile.html", seller=seller)
-    flash("User not found")    
-    return redirect(url_for("login"))
-
-@app.route("/users/userId", methods=["PATCH"])
+@app.route("/users/<userId>", methods=["GET", "PUT"])
 def update_profile(userId):
-    seller_name_v = request.form.get("seller_name")
-    seller_email_v = request.form.get("email")
-    seller_phone_v = request.form.get("phone")
-    seller_city_v = request.form.get("city")
-    password_v = request.form.get("password") 
-
+    print(userId)
     seller = Seller.objects(id=userId).first()
-    if seller:
-        seller.seller_name = seller_name_v
-        seller.email = seller_email_v
-        seller.phone = seller_phone_v
-        seller.city = seller_city_v
-        seller.password = password_v
-        seller.save()
-        flash("User profile updated")
+    if request.method == "GET":
+        return render_template("profile.html", seller=seller)
+           
+    seller_name_v = request.json.get("seller_name")
+    seller_email_v = request.json.get("email")
+    seller_phone_v = request.json.get("phone")
+    seller_city_v = request.json.get("city")
+    password_v = request.json.get("password") 
 
-    return redirect(url_for("profile.html"))
+    seller.seller_name = seller_name_v
+    seller.email = seller_email_v
+    seller.phone = seller_phone_v
+    seller.city = seller_city_v
+    seller.password = password_v
+    seller.save()
+
+    return jsonify({
+        "msg": "Profile updated successfully"
+    })
+    
 
    
 
