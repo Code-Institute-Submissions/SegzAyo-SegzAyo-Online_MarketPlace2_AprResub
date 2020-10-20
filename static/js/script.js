@@ -6,7 +6,15 @@
 //  });
 
 // Get reference of the submit button
+document.addEventListener("readystatechange", (e)=> {
+    console.log("test")
 const updateForm = document.getElementById("updateForm")
+const editProfile = document.getElementById("edit_profile")
+
+editProfile.addEventListener('click', (e) => {
+    document.getElementById("profile").style.display = "none"
+    document.getElementById("update").style.display = "" 
+})
 
 updateForm.addEventListener('submit', (e) => {
     e.preventDefault()
@@ -45,8 +53,7 @@ updateForm.addEventListener('submit', (e) => {
     .then(json_data => {
         console.log(json_data)
         document.getElementById('success').innerText = json_data["msg"]
+        window.location.reload()
     })
 })
-
-
-
+})

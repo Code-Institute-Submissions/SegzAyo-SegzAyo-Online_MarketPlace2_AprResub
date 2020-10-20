@@ -11,6 +11,15 @@
       </div>
     </div>
   </div>
+<div id="profile">
+    <h5>{{ seller.seller_name }}</h5>
+    <h5>{{ seller.seller_city }}</h5>
+    <h5>{{ seller.seller_email }}</h5>
+    <h5>{{ seller.seller_phone }}</h5>
+    <button class="submit" id="edit_profile">Edit profile</button>
+</div>
+
+<div id="update" style="display: none">
 <h3 class="center-align">Update profile</h3>
 <h2 id="success"></h2>
 <div class="row">
@@ -71,5 +80,6 @@
       </div>
     </form>
   </div>
+</div>  
 
 {% endblock %}

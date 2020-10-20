@@ -5,7 +5,7 @@ from flask import (
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
-from models import Seller
+from models import Seller, ProductListing
 
 if os.path.exists("env.py"):
     import env
@@ -57,7 +57,7 @@ def register():
         session["userId"] = str(new_seller.id)
         flash("Registration Successful!")
         return redirect(
-            url_for("update_profile", username=session["user"]))
+            url_for("update_profile", userId=session["userId"]))
     return render_template("register.html")
 
 @app.route("/login", methods=["GET", "POST"])
@@ -115,22 +115,24 @@ def update_profile(userId):
 
 @app.route("/list_product", methods=["GET", "POST"])
 def list_product():
-    if list_product == "POST":
+    if request.method == "POST":
         category_v = request.form.get("category")
         product_name_v = request.form.get("product_name")
-        product_price_V = request.form.get("product_price")
+        product_price_v = request.form.get("product_price")
         product_description_v = request.form.get("product_description")
         # check if product is already listed
-        existing_product = product_listing.objects(product_name=product_name_v).first()
+        existing_product = ProductListing.objects(product_name=product_name_v).first()
 
         if existing_product:
             flash("Product already listed")
-            return redirect(url_for("profile.html"))
+            return redirect(url_for("list_prodict"))
 
-    new_listing = product_listing(category=category_v, product_name=product_name_v, 
-    product_price=product_price_v, product_description=product_description_v)
+        new_listing = ProductListing(category=category_v, product_name=product_name_v, 
+            product_price=product_price_v, product_description=product_description_v)
 
-    new_listing.save()
+        new_listing.save()
+
+    return render_template("products.html")   
     
 
 @app.route("/sign_out")
