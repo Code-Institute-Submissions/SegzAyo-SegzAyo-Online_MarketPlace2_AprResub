@@ -5,7 +5,7 @@ from flask import (
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
-from models import Seller, ProductListing
+from models import Seller, ProductListing, Category
 
 if os.path.exists("env.py"):
     import env
@@ -22,7 +22,7 @@ mongo = PyMongo(app)
 @app.route("/")
 @app.route("/get_products")
 def get_products():
-    products_data = mongo.db.productMDB.find()
+    products_data = ProductListing.objects().all()
 
     return render_template("products.html", products=products_data)
 
@@ -93,7 +93,8 @@ def update_profile(userId):
     print(userId)
     seller = Seller.objects(id=userId).first()
     if request.method == "GET":
-        return render_template("profile.html", seller=seller)
+        sellers_listings = ProductListing.objects(seller_id=seller).all()
+        return render_template("profile.html", seller=seller, listings=sellers_listings)
            
     seller_name_v = request.json.get("seller_name")
     seller_email_v = request.json.get("email")
@@ -113,26 +114,40 @@ def update_profile(userId):
     })
     
 
-@app.route("/list_product", methods=["GET", "POST"])
-def list_product():
+@app.route("/<userId>/list_product", methods=["GET", "POST"])
+def list_product(userId):
+    categories = Category.objects().all()
+    seller = Seller.objects(id=userId).first()
     if request.method == "POST":
-        category_v = request.form.get("category")
+        category_id = request.form.get("category_id")
         product_name_v = request.form.get("product_name")
         product_price_v = request.form.get("product_price")
         product_description_v = request.form.get("product_description")
+
         # check if product is already listed
         existing_product = ProductListing.objects(product_name=product_name_v).first()
 
+        category = Category.objects(id=category_id)
         if existing_product:
             flash("Product already listed")
-            return redirect(url_for("list_prodict"))
+            return redirect(url_for("list_product"))
 
-        new_listing = ProductListing(category=category_v, product_name=product_name_v, 
-            product_price=product_price_v, product_description=product_description_v)
+        new_listing = ProductListing(category_id=category_id, product_name=product_name_v, 
+            product_price=product_price_v, product_description=product_description_v, seller_id=seller)
 
         new_listing.save()
+        flash("Item listed")
 
-    return render_template("products.html")   
+    return render_template("listing_page.html", seller=seller, categories=categories)
+
+@app.route("/categories")
+def populate_cat():
+    Category(name="Electronics").save()
+    Category(name="Household").save()
+    Category(name="Furniture").save()
+    Category(name="Cars").save()
+    Category(name="Computers").save()
+    return "Successfully added"
     
 
 @app.route("/sign_out")

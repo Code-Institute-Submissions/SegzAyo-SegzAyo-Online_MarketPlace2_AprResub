@@ -80,6 +80,15 @@
       </div>
     </form>
   </div>
-</div>  
+</div>
+<div>
+{% for product in listings %}
+    <h2> {{ product.name }}</h2>
+        {{ product.product_name }}<br>
+        {{ product.category }}<br>
+        {{ product.product_price }}<br>
+        {{ product.product_description }}<br>
+    {% endfor %}
+</div>    
 
 {% endblock %}
