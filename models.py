@@ -32,6 +32,10 @@ class ProductListing(Document):
     product_price = StringField(required=True)
     product_description = StringField()
     seller_id = ReferenceField(Seller)
-    
+    meta = {'indexes': [
+        {'fields': ['$product_name', "$product_description"],
+         'default_language': 'english',
+        }
+    ]}    
 
 

@@ -148,6 +148,15 @@ def populate_cat():
     Category(name="Cars").save()
     Category(name="Computers").save()
     return "Successfully added"
+
+@app.route("/search")
+def search():
+    Search_word = request.args.get("product_name")
+    products = ProductListing.objects.search_text(Search_word).all()
+    print(products)
+    print("testing text")
+
+    return jsonify(products)
     
 
 @app.route("/sign_out")

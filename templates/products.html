@@ -2,15 +2,33 @@
 {% block content %}
 
     <h2>I am extending the base template</h2>
-    {% for product in products %}
-    <h2> {{ product.name }}</h2>
-        {{ product.product_name }}<br>
-        {{ product.category }}<br>
-        {{ product.product_price }}<br>
-        {{ product.product_description }}<br>
-    {% endfor %}
+<section>    
+    <form id="searchForm">
+        <div>
+            <input id="search_word" name="search_word" type="text" class="validate" required>
+        </div>
+        <button type="submit" class="col s12 btn-large light-blue darken-4 text-shadow">
+            Search <i class="fas-fa-sign-in-alt"></i>
+        </button>
+    </form>
+</section>
+        <div class="home">
+            <h2>Items listed</h2>
+            {% for product in products %}
+            <a href="#">
+                {{product.product_name}}
+                {{product.product_price}}
+            </a>    
+            {% endfor %}
 
+        </div>
+        <div class="results" style="display: none">
+            <h2>Search result</h2>
+            {% for product in products %}
+            <a href="#">
+                {{product.product_name}}
+                {{product.product_price}}
+            </a>    
+            {% endfor %}
+        </div>
 {% endblock %}
-    
-</body>
-</html>
