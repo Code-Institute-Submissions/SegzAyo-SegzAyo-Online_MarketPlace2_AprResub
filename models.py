@@ -32,10 +32,19 @@ class ProductListing(Document):
     product_price = StringField(required=True)
     product_description = StringField()
     seller_id = ReferenceField(Seller)
+
     meta = {'indexes': [
         {'fields': ['$product_name', "$product_description"],
          'default_language': 'english',
         }
-    ]}    
+    ]}
+
+    @property
+    def serialize(self):
+        return {
+            "product_name": self.product_name,
+            "product_description": self.product_description,
+            "product_price": self.product_price
+        }
 
 

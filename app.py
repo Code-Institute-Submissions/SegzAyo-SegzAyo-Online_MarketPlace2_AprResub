@@ -23,10 +23,14 @@ mongo = PyMongo(app)
 @app.route("/get_products")
 def get_products():
     products_data = ProductListing.objects().all()
+    categories_data = Category.objects().all()
+    return render_template("products.html", products=products_data, categories=categories_data)
 
-    return render_template("products.html", products=products_data)
-
-
+@app.route("/categories/<category_id>/products")
+def get_categories(category_id):
+    category_products = ProductListing.objects(category_id=category_id).all()
+    category = Category.objects(id=category_id).first()
+    return render_template("categoryProducts.html", category=category, products=category_products)
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
@@ -153,10 +157,11 @@ def populate_cat():
 def search():
     Search_word = request.args.get("product_name")
     products = ProductListing.objects.search_text(Search_word).all()
-    print(products)
+    data = [product.serialize for product in products ]
+    print(data)
     print("testing text")
 
-    return jsonify(products)
+    return jsonify(data)
     
 
 @app.route("/sign_out")
