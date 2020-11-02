@@ -8,6 +8,8 @@
         <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
         <!-- Font Awesome icons-->
         <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" rel="stylesheet">
         <!-- Google fonts-->
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
         <link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
@@ -16,38 +18,13 @@
         <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
         <title>Product Page</title>
     </head>
-<!--<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" 
-    integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" type="text/css"/>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" type="text/css">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css"> -->
+
     {% block style %}    
     {% endblock %}
     <title>Products</title>
 </head>
 <body>
     <header>
-    <!-------- top navbar ---->
-    <!----   <nav class="nav-extended text-shadow blue accent-2">
-            <div class="nav-wrapper">
-            <a href="{{ url_for('get_products') }}" class="brand-logo">Market Place</a>
-            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="fas fa-bars"></i></a>
-            <ul class="right hide-on-med-and-down">
-                <li><a href="{{ url_for('get_products') }}">Home</a></li>
-                <li><a href="#">Categories</a></li>
-                <li><a href="{{ url_for('login') }}">Log in</a></li>
-                <li><a href="{{ url_for('sign_out')}}">Sign out</a></li>
-                <li><a href="{{ url_for('register') }}">Register</a></li>
-                <li><a href="#">FAQs</a></li>
-                <li><a href="#">About Us</a></li>
-            </ul>
-            </div>
-        </nav> -->
         <body>
             <!-- Navigation-->
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
@@ -93,18 +70,6 @@
             </nav>
 
 <!-------mobile side navbar-->
-<!--  <ul class="sidenav" id="mobile-demo">
-        <li><h4 class="center-align light-blue-text text-darken-4">Market Place</h4></li>
-        <li><a href="{{ url_for('get_products') }}">Home</a></li>
-        <li><a href="#">Categories</a></li>
-        <li><a href="{{ url_for('login') }}">Log in</a></li>
-        <li><a href="#">Sign out</a></li>
-        <li><a href="{{ url_for('register') }}">Register</a></li>
-        <li><a href="#">FAQs</a></li>
-        <li><a href="#">About Us</a></li>
-  </ul>
-    </header> -->
-
     <section>
         <!-- flash messages -->
         {% with messages = get_flashed_messages() %}
@@ -117,8 +82,7 @@
             {% endif %}
         {% endwith %}
     </section>
-
-    <main class="container">
+    <main class="container-fluid">
         {% block content %}    
         {% endblock %}
     </main>

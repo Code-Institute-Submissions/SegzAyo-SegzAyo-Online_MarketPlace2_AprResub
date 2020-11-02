@@ -12,12 +12,19 @@
     width: 100%;
 } */
 
-.carousel-item {
-  height: 65vh;
-  min-height: 350px;
-  background: no-repeat center center scroll;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+.baseContainer {
+    padding-top: 55px;
+}
+
+.searchForm {
+    padding-top: 350px;
+}
+
+.baseContainer {
+    text-align: center;
+    height: 600px;
+    background-image: url("../../images/presents-under-tree.jpg");
+    background-size: cover;
+    background-position: center;
+    
 }
