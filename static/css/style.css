@@ -23,7 +23,7 @@
 .baseContainer {
     text-align: center;
     height: 600px;
-    background-image: url("../../images/presents-under-tree.jpg");
+    background-image: url("../static/images/presents-under-tree.jpg");
     background-size: cover;
     background-position: center;
     

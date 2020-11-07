@@ -18,8 +18,20 @@
 	<h2>Items listed</h2>
 	{% for product in products %}
 	<a href="#">
-		{{product.product_name}}
-		{{product.product_price}}
+		<div class="row">
+            <div class="col-lg-3 col-sm-6 mb-4">
+                <div class="card h-100">
+                    <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            {{product.product_name}}
+                        </h5>
+                        <h5>
+                        {{product.product_price}}</h5>
+                    </div>
+                </div>
+            </div>
+    </div>
 	</a>
 	{% endfor %}
 
@@ -35,3 +47,20 @@
 	</div>
 </div>
 {% endblock %}
+
+
+
+<!---
+<div class="row">
+        <div class="col-lg-4 col-sm-6 mb-4">
+            <div class="card h-100">
+                <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+                <div class="card-body">
+                    <h4 class="card-title">
+                        {product.product_name}}
+		                {{product.product_price}}
+                    </h4>
+                </div>
+            </div>
+        </div>
+    </div>  --->
