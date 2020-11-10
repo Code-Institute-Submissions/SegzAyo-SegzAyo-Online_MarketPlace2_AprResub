@@ -1,22 +1,30 @@
 {% extends "base.html" %}
 {% block content %}
+<section class="container-fluid baseContainer">
 
-<section class="container-fluid baseContainer">  
-            <form id="searchForm" class="row searchForm justify-content-center">
-                    <input id="word" name="word" type="text" class="col-8 col-md-8 center-align my-auto validate" required>
-                    <button type="submit" class="col-3 col-md-2 center-align my-auto">
-                    Search <i class="fas-fa-sign-in-alt"></i>
-                </button>
-            </form>
+    <form id="searchForm" class="row searchForm justify-content-center">
+        <input id="word" name="word" type="text" class="col-8 col-xs-6 col-md-4 col-lg-5 center-align my-auto validate" required>
+        <button type="submit" class="col-3 col-md-2 col-lg-1 center-align my-auto">
+        Search <i class="fas-fa-sign-in-alt"></i>
+        </button>
+    </form>
 </section>
 <ul>
-{% for category in categories %}
-    <li><a href="{{url_for('get_categories', category_id=category.id)}}"> {{category.name}} </a></li>
-{% endfor %}
+    <div class="row justify-content-center">
+    {% for category in categories %}
+        <div class="col-3 col-md-2 text-center">
+            <a href="{{url_for('get_categories', category_id=category.id)}}">
+                <button type="button" class="btn btn-outline-info">{{category.name}}</button> 
+            </a>
+        </div>
+    {% endfor %}    
+    </div>
 </ul>
 <section class="container">
-    <h2>Items listed</h2>
-    <div id="home" class="row justify-content-center">
+    <div id="home" class="row justify-content-start">
+        <div class="col-12 text-center">
+            <h2>Listed items</h2>
+        </div>
         {% for product in products %}
         <a href="#">
                 <div class="col-lg-3 col-sm-6 mb-4">
@@ -26,9 +34,9 @@
                             <h5 class="card-title" style="margin-bottom: 5px;">
                                 {{product.product_name}}
                             </h5>
-                            <h5>
+                            <h6>
                                 {{product.product_price}}
-                            </h5>
+                            </h6>
                         </div>
                     </div>
                 </div>

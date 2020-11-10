@@ -24,7 +24,7 @@
 .baseContainer {
     text-align: center;
     height: 600px;
-    background-image: url("../static/images/presents-under-tree.jpg");
+    background-image: url("/static/images/pexels-andrea-piacquadio-853151.jpg");
     background-size: cover;
     background-position: center;
     
