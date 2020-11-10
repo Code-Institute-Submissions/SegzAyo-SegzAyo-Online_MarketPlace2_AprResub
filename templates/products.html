@@ -14,28 +14,28 @@
     <li><a href="{{url_for('get_categories', category_id=category.id)}}"> {{category.name}} </a></li>
 {% endfor %}
 </ul>
-<div id="home">
-	<h2>Items listed</h2>
-	{% for product in products %}
-	<a href="#">
-		<div class="row">
-            <div class="col-lg-3 col-sm-6 mb-4">
-                <div class="card h-100">
-                    <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-                    <div class="card-body">
-                        <h5 class="card-title">
-                            {{product.product_name}}
-                        </h5>
-                        <h5>
-                        {{product.product_price}}</h5>
+<section class="container">
+    <h2>Items listed</h2>
+    <div id="home" class="row justify-content-center">
+        {% for product in products %}
+        <a href="#">
+                <div class="col-lg-3 col-sm-6 mb-4">
+                    <div class="card h-60">
+                        <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+                        <div class="card-body" style="padding-top: 5px; padding-bottom: 5px;">
+                            <h5 class="card-title" style="margin-bottom: 5px;">
+                                {{product.product_name}}
+                            </h5>
+                            <h5>
+                                {{product.product_price}}
+                            </h5>
+                        </div>
                     </div>
                 </div>
-            </div>
+        </a>
+        {% endfor %}
     </div>
-	</a>
-	{% endfor %}
-
-</div>
+</section>
 <div id="results" style="display: none">
 	<h2>Searched result</h2>
 	<div>
