@@ -44,6 +44,33 @@
         {% endfor %}
     </div>
 </section>
+<section class="container">
+    <div id="results" style="display: none" class="row justify-content-start">
+        <div class="col-12 text-center">
+            <h2>Searched result</h2>
+        </div>
+        <a href="#">
+            <div class="col-lg-3 col-sm-6 mb-4">
+                <div class="card h-60">
+                    <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+                    <div class="card-body" style="padding-top: 5px; padding-bottom: 5px;">
+                        <h5 class="card-title" style="margin-bottom: 5px;">
+                            <span id="product_name"></span>
+                        </h5>
+                        <h6>
+                            <span id="product_price"></span>
+                        </h6>
+                        <P>
+                            <span id="product_description"></span>
+                        </P>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+</section>
+
+
 <div id="results" style="display: none">
 	<h2>Searched result</h2>
 	<div>
@@ -56,19 +83,3 @@
 </div>
 {% endblock %}
 
-
-
-<!---
-<div class="row">
-        <div class="col-lg-4 col-sm-6 mb-4">
-            <div class="card h-100">
-                <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-                <div class="card-body">
-                    <h4 class="card-title">
-                        {product.product_name}}
-		                {{product.product_price}}
-                    </h4>
-                </div>
-            </div>
-        </div>
-    </div>  --->
