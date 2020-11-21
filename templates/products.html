@@ -1,7 +1,10 @@
 {% extends "base.html" %}
 {% block content %}
 <section class="container-fluid baseContainer">
-
+    <div class="welcomeMessage">
+        <h1>Welcome to Marketsquare</h1>
+        <h6>What do you want to buy today</h6>
+    </div>
     <form id="searchForm" class="row searchForm justify-content-center">
         <input id="word" name="word" type="text" class="col-8 col-xs-6 col-md-4 col-lg-5 center-align my-auto validate" required>
         <button type="submit" class="col-3 col-md-2 col-lg-1 center-align my-auto">
@@ -9,9 +12,9 @@
         </button>
     </form>
 </section>
-<section class="container-fluid">
+<section class="container-fluid categorySection">
     <ul>
-        <div class="row justify-content-center">
+        <div class="row justify-content-center" style="padding-top: 100px">
         {% for category in categories %}
             <div class="col-3 col-md-2 text-center my-auto">
                 <a href="{{url_for('get_categories', category_id=category.id)}}">
@@ -23,7 +26,7 @@
     </ul>
 </section>
 <section class="container">
-    <div id="home" class="row justify-content-start">
+    <div id="home" class="row justify-content-start" style="padding-top: 50px;">
         <div class="col-12 text-center">
             <h2>Listed items</h2>
         </div>
@@ -71,18 +74,22 @@
         </a>
     </div>
 </section>
+<section>
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-3 text-center">
+            <p>Search for items</p>
+        </div>
+        <div class="col-12 col-md-3 text-center">
+            <p>Contact seller</p>
+        </div>
+        <div class="col-12 col-md-3 text-center">
+            <p>Arrange transaction</p>
+        </div>
+    </div>
+</section>
+{% endblock %}
 
 
-<div id="results" style="display: none">
-	<h2>Searched result</h2>
-	<div>
-		<a href="#">
-			<span id="product_name"></span>
-            <span id="product_price"></span>
-			<span id="product_description"></span>
-		</a>
-	</div>
-</div>
 <section class="py-12 bg-dark bg-pattern" id="howItWorks">
     <div class="container">
         <div class="row">
@@ -101,5 +108,3 @@
         </div>
     </div>
 </section>    
-{% endblock %}
-

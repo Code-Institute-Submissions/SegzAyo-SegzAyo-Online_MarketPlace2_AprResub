@@ -1,31 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400&family=Roboto&display=swap');
 
-/*.text-shadow{
-    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+/*----------------------General--*/
+.welcomeMessage {
+    padding-top: 200px;
+    color: #fff;
 }
 
-.container {
-    width: 100%;
-    margin: 0 auto;
-    max-width: 1280px;
-}
-
-.carousel .carousel-item>img {
-    width: 100%;
-} */
-
-.baseContainer {
-    padding-top: 55px;
+.categorySection {
+    background-color: #F8F9FA;
+    height: 250px;
 }
 
 .searchForm {
-    padding-top: 350px;
+    padding-top: 50px;
 }
 
 .baseContainer {
+    padding-top: 55px;
     text-align: center;
-    height: 600px;
+    height: 500px;
     background-image: url("/static/images/Basic-Landing-Page-background.jpg");
     background-size: cover;
     background-position: center;
     
 }
+
