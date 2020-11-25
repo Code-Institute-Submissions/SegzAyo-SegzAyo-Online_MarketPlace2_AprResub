@@ -19,9 +19,39 @@
     padding-top: 55px;
     text-align: center;
     height: 500px;
-    background-image: url("/static/images/Basic-Landing-Page-background.jpg");
+    background-image: url("/static/images/pexels-andrea-piacquadio-3768894.jpg");
     background-size: cover;
     background-position: center;
     
 }
 
+.searchItem {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    background-image: url("/static/images/pexels-ketut-subiyanto-4353619.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.howToSection {
+    background-color: #F8F9FA;
+}
+
+.contactSeller {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    background-image: url("/static/images/pexels-ketut-subiyanto-4353613.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.Transact {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    background-image: url("/static/images/pexels-cytonn-photography-955388.jpg");
+    background-size: cover;
+    background-position: center;
+}

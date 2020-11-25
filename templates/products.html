@@ -16,7 +16,7 @@
     <ul>
         <div class="row justify-content-center" style="padding-top: 100px">
         {% for category in categories %}
-            <div class="col-3 col-md-2 text-center my-auto">
+            <div class="col-4 col-md-2 text-center my-auto">
                 <a href="{{url_for('get_categories', category_id=category.id)}}">
                     <button type="button" class="btn btn-outline-info">{{category.name}}</button> 
                 </a>
@@ -74,37 +74,20 @@
         </a>
     </div>
 </section>
-<section>
-    <div class="row justify-content-center">
-        <div class="col-12 col-md-3 text-center">
+<section class="container-fluid">
+    <div class="row howToSection justify-content-center">
+        <div class="col-12 col-md-3 my-auto text-center" style="padding-top: 30px; padding-bottom: 30px;">
+            <div class="searchItem mx-auto"></div>
             <p>Search for items</p>
         </div>
-        <div class="col-12 col-md-3 text-center">
+        <div class="col-12 col-md-3 my-auto text-center" style="padding-top: 30px; padding-bottom: 30px;">
+            <div class="contactSeller mx-auto"></div>
             <p>Contact seller</p>
         </div>
-        <div class="col-12 col-md-3 text-center">
+        <div class="col-12 col-md-3 my-auto text-center" style="padding-top: 30px; padding-bottom: 30px;">
+            <div class="Transact mx-auto"></div>
             <p>Arrange transaction</p>
         </div>
     </div>
 </section>
-{% endblock %}
-
-
-<section class="py-12 bg-dark bg-pattern" id="howItWorks">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <h2 class="mb-10 text-center text-light">How It Works</h2>
-
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-12 col-md-4">
-                <div class="card bg-none mb-7 mb-md-0">
-                    
-                </div>
-            </div>
-
-        </div>
-    </div>
-</section>    
+{% endblock %} 

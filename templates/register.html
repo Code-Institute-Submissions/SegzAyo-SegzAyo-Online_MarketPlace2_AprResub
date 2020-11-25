@@ -1,12 +1,16 @@
 {% extends "base.html" %}
 {% block content %}
-<section>
-    <div class="carousel carousel-slider">
-        <a class="carousel-item" href="#one!"><img src="https://lorempixel.com/800/400/food/1"></a>
-        <a class="carousel-item" href="#two!"><img src="https://lorempixel.com/800/400/food/2"></a>
-        <a class="carousel-item" href="#three!"><img src="https://lorempixel.com/800/400/food/3"></a>
-        <a class="carousel-item" href="#four!"><img src="https://lorempixel.com/800/400/food/4"></a>
+<section class="container-fluid baseContainer">
+    <div class="welcomeMessage">
+        <h1>Welcome to Marketsquare</h1>
+        <h6>What do you want to buy today</h6>
     </div>
+    <form id="searchForm" class="row searchForm justify-content-center">
+        <input id="word" name="word" type="text" class="col-8 col-xs-6 col-md-4 col-lg-5 center-align my-auto validate" required>
+        <button type="submit" class="col-3 col-md-2 col-lg-1 center-align my-auto">
+        Search <i class="fas-fa-sign-in-alt"></i>
+        </button>
+    </form>
 </section>
 <h3 class="center-align">Register</h3>
 <div class="row">
@@ -75,5 +79,63 @@
             </p>
         </div>
     </div>
+<section class="container-fluid">
+    <div class="row howToSection justify-content-center">
+        <div class="col-12 col-md-3 my-auto text-center" style="padding-top: 30px; padding-bottom: 30px;">
+            <div class="searchItem mx-auto"></div>
+            <p>Search for items</p>
+        </div>
+        <div class="col-12 col-md-3 my-auto text-center" style="padding-top: 30px; padding-bottom: 30px;">
+            <div class="contactSeller mx-auto"></div>
+            <p>Contact seller</p>
+        </div>
+        <div class="col-12 col-md-3 my-auto text-center" style="padding-top: 30px; padding-bottom: 30px;">
+            <div class="Transact mx-auto"></div>
+            <p>Arrange transaction</p>
+        </div>
+    </div>
+</section>    
 
 {% endblock %}
+
+
+
+
+
+
+<!-- Card -->
+<div class="card">
+	<!-- Card body -->
+	<div class="card-body">
+		<!-- Material form register -->
+		<form>
+			<p class="h4 text-center py-4">Sign up</p>
+			<!-- Material input text -->
+			<div class="md-form"> <i class="fa fa-user prefix grey-text"></i>
+				<input type="text" id="materialFormCardNameEx" class="form-control">
+				<label for="materialFormCardNameEx" class="font-weight-light">Your name</label>
+			</div>
+			<!-- Material input email -->
+			<div class="md-form"> <i class="fa fa-envelope prefix grey-text"></i>
+				<input type="email" id="materialFormCardEmailEx" class="form-control">
+				<label for="materialFormCardEmailEx" class="font-weight-light">Your email</label>
+			</div>
+			<!-- Material input email -->
+			<div class="md-form"> <i class="fa fa-exclamation-triangle prefix grey-text"></i>
+				<input type="email" id="materialFormCardConfirmEx" class="form-control">
+				<label for="materialFormCardConfirmEx" class="font-weight-light">Confirm your email</label>
+			</div>
+			<!-- Material input password -->
+			<div class="md-form"> <i class="fa fa-lock prefix grey-text"></i>
+				<input type="password" id="materialFormCardPasswordEx" class="form-control">
+				<label for="materialFormCardPasswordEx" class="font-weight-light">Your password</label>
+			</div>
+			<div class="text-center py-4 mt-3">
+				<button class="btn btn-cyan" type="submit">Register</button>
+			</div>
+		</form>
+		<!-- Material form register -->
+	</div>
+	<!-- Card body -->
+</div>
+<!-- Card -->
