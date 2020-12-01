@@ -6,49 +6,44 @@
         <h6>What do you want to buy today</h6>
     </div>
     <form id="searchForm" class="row searchForm justify-content-center">
-        <input id="word" name="word" type="text" class="col-8 col-xs-6 col-md-4 col-lg-5 center-align my-auto validate" required>
-        <button type="submit" class="col-3 col-md-2 col-lg-1 center-align my-auto">
+        <input id="word" name="word" type="text" class="form-control form-control-sm col-8 col-xs-6 col-md-4 col-lg-5 center-align my-auto validate" required>
+        <button type="submit" class="btn btn-sm btn-dark col-3 col-md-2 col-lg-1 center-align my-auto">
         Search <i class="fas-fa-sign-in-alt"></i>
         </button>
     </form>
 </section>
-<h3 class="center-align">Log in</h3>
-<div class="row">
-    <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('login') }}">
-      <div class="card">
-      <!---- Username input-->
-        <div class="card-body mx-4 mt-4">
-            <div class="input-field md-form">
-                <i class="fas fa-user-cog prefix light-blue-text text-darken-4"></i>
-                <input id="email" name="email" type="text"  class="validate" required>
-                <label for="username">Username</label>
+<div class="card row">
+    <div class="card-body mx-auto col-10 col-md-4">
+        <form method="POST" action="{{ url_for('login') }}">
+        <p class="h4 text-center py-4">Sign in</p>
+        <!---- Email input-->  
+            <div class="md-form">
+                <label class="font-weight-light" for="seller_name"><i class="fa fa-user prefix grey-text"></i> email</label>
+                <input class="form-control validate" id="email" name="email" type="text" minlength="5"
+                    placeholder="email" required>
+                
             </div>
-        </div>
-        <!---- Password input-->
-        <div class="row">
-            <div class="input-field md-form pb-1 pb-md-3">
-                <i class="fas fa-user-lock prefix light-blue-text text-darken-4"></i>
-                <input id="password" name="password" type="password" class="validate" required>
-                <label for="password">Password</label>
+            <!---- Password input-->
+            <div class="md-form">
+                <label class="font-weight-light" for="email"><i class="fa fa-envelope prefix grey-text"></i> Email</label>
+                <input class="form-control" id="password" name="password" type="password" minlength="5"
+                    class="validate" required>
             </div>
-      </div>
-      <!---- Login button-->
-      <div class="row">
-        <button type="submit" class="col s12 btn-large light-blue darken-4 text-shadow">
-            Log in <i class="fas-fa-sign-in-alt"></i>
-        </button>
-      </div>
-      </div>
-    </form>
-  </div>
-  <div class="row">
-        <div class="col s12">
-            <p class="center-align">
-                New Here?
-                <a href="{{ url_for('register') }}" class="light-blue-text text-darken-4">Register Account</a>
+        <!---- Register button-->
+            <div class="text-center py-4 mt-3">
+                <button type="submit" class="btn btn-dark">
+                    Sign in <i class="fas-fa-sign-in-alt"></i>
+                </button>
+            </div>
+        </form>
+        <div class="mx-auto col-10 col-md-12">
+            <p class="center-align text-center">
+                New here?
+                 <a href="{{ url_for('register') }}" class="light-blue-text text-darken-4">Sign up</a>
             </p>
         </div>
-    </div>
+    </div>    
+</div>
 <section class="container-fluid">
     <div class="row howToSection justify-content-center">
         <div class="col-12 col-md-3 my-auto text-center" style="padding-top: 30px; padding-bottom: 30px;">
@@ -67,3 +62,37 @@
 </section>    
 
 {% endblock %}
+
+
+<div class="card row">
+    <div class="card-body mx-auto col-10 col-md-4">
+        <form method="POST" action="{{ url_for('login') }}">>
+        <p class="h4 text-center py-4">Sign up</p>
+        <!---- Email input-->  
+            <div class="md-form">
+                <label class="font-weight-light" for="seller_name"><i class="fa fa-user prefix grey-text"></i> email</label>
+                <input class="form-control validate" id="email" name="email" type="text" minlength="5"
+                    placeholder="email" required>
+                
+            </div>
+            <!---- Password input-->
+            <div class="md-form">
+                <label class="font-weight-light" for="email"><i class="fa fa-envelope prefix grey-text"></i> Email</label>
+                <input class="form-control" id="password" name="password" type="password" minlength="5"
+                    class="validate" required>
+            </div>
+        <!---- Register button-->
+            <div class="text-center py-4 mt-3">
+                <button type="submit" class="btn btn-dark">
+                    Register <i class="fas-fa-sign-in-alt"></i>
+                </button>
+            </div>
+        </form>
+        <div class="mx-auto col-10 col-md-12">
+            <p class="center-align">
+                New here?
+                 <a href="{{ url_for('register') }}" class="light-blue-text text-darken-4">Log in</a>
+            </p>
+        </div>
+    </div>    
+</div>

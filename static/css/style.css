@@ -55,3 +55,12 @@
     background-size: cover;
     background-position: center;
 }
+
+.profileImage {
+    height: 140px;
+    width: 140px;
+    border-radius: 50%;
+    background-image: url("/static/images/pexels-ketut-subiyanto-4353619.jpg");
+    background-size: cover;
+    background-position: center;
+}

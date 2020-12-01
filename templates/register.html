@@ -6,8 +6,8 @@
         <h6>What do you want to buy today</h6>
     </div>
     <form id="searchForm" class="row searchForm justify-content-center">
-        <input id="word" name="word" type="text" class="col-8 col-xs-6 col-md-4 col-lg-5 center-align my-auto validate" required>
-        <button type="submit" class="col-3 col-md-2 col-lg-1 center-align my-auto">
+        <input id="word" name="word" type="text" class="form-control form-control-sm col-8 col-xs-6 col-md-4 col-lg-5 center-align my-auto validate" required>
+        <button type="submit" class="btn btn-sm btn-dark center-align my-auto">
         Search <i class="fas-fa-sign-in-alt"></i>
         </button>
     </form>
@@ -17,35 +17,35 @@
         <form method="POST" action="{{ url_for('register') }}">
         <p class="h4 text-center py-4">Sign up</p>
         <!---- Username input-->  
-            <div class="md-form"><i class="fa fa-user prefix grey-text"></i>
+            <div class="md-form">
+                <label class="font-weight-light" for="seller_name"><i class="fa fa-user prefix grey-text"></i> Username</label>
                 <input class="form-control validate" id="seller_name" name="seller_name" type="text" minlength="5"
                     placeholder="Username"  maxlength="15" required>
-                <label class="font-weight-light" for="seller_name">Username</label>
+                
             </div>
             <!---- Username input-->
-            <div class="md-form"> <i class="fa fa-envelope prefix grey-text"></i>
+            <div class="md-form">
+                <label class="font-weight-light" for="email"><i class="fa fa-envelope prefix grey-text"></i> Email</label>
                 <input class="form-control" id="email" name="email" type="email" minlength="5"
                     class="validate" required>
-                <label class="font-weight-light" for="email">Email</label>
             </div>
             <!---- Password input-->
-            <div class="md-form"> <i class="fa fa-lock prefix grey-text"></i>
+            <div class="md-form">
+                <label class="font-weight-light" for="password"><i class="fa fa-lock prefix grey-text"></i> Password</label>
                 <input class="form-control validate" id="password" name="password" type="password" minlength="5"
                             maxlength="15"required>
-                <label class="font-weight-light" for="password">Password</label>
             </div>
         <!---- Username input-->
-            <div class="md-form"> <i class="fa fa-phone prefix grey-text"></i>
+            <div class="md-form">
+                <label class="font-weight-light" for="phone"><i class="fa fa-phone prefix grey-text"></i> Phone</label>
                 <input class="form-control" id="phone" name="phone" type="text" minlength="5"
                                 maxlength="15" required>
-                <label class="font-weight-light" for="phone">Phone</label>
             </div>
             <!---- Username input-->
-            <div class="md-form"> <i class="fa fa-city prefix grey-text"></i>
-                <i class="fas fa-user-plus prefix light-blue-text text-darken-4"></i>
+            <div class="md-form">
+                <label class="font-weight-light" for="city"><i class="fa fa-city prefix grey-text"></i> City</label>
                 <input class="form-control validate" id="city" name="city" type="text" minlength="5"
                                 maxlength="15" required>
-                <label class="font-weight-light" for="city">City</label>
             </div>
         <!---- Register button-->
             <div class="text-center py-4 mt-3">
@@ -55,7 +55,7 @@
             </div>
         </form>
         <div class="mx-auto col-10 col-md-12">
-            <p class="center-align">
+            <p class="center-align text-center">
                 Already registered?
                  <a href="{{ url_for('login') }}" class="light-blue-text text-darken-4">Log in</a>
             </p>

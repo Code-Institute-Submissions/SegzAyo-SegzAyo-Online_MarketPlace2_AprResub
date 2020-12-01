@@ -1,11 +1,40 @@
 {% extends "base.html" %}
 {% block content %}
-	<h2> Products for {{ category.name }} Category</h2>
+<section class="container-fluid baseContainer">
+    <div class="welcomeMessage">
+        <h1>Welcome to Marketsquare</h1>
+        <h6>What do you want to buy today</h6>
+    </div>
+    <form id="searchForm" class="row searchForm justify-content-center">
+        <input id="word" name="word" type="text" class="form-control col-8 col-xs-6 col-md-4 col-lg-5 center-align my-auto validate" required>
+        <button type="submit" class="btn btn-dark col-3 col-md-2 col-lg-1 center-align my-auto">
+        Search <i class="fas-fa-sign-in-alt"></i>
+        </button>
+    </form>
+</section>
+
+<section class="container">
+    <div id="home" class="row justify-content-start" style="padding-top: 50px;">
+        <div class="col-12 text-center">
+            <h2>Products for {{ category.name }} Category</h2>
+        </div>
 	{% for product in products %}
-	<a href="#">
-		{{product.product_name}}
-		{{product.product_price}}
-	</a>
+	    <a href="#">
+            <div class="col-lg-3 col-sm-6 mb-4">
+                <div class="card h-60">
+                    <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+                    <div class="card-body" style="padding-top: 5px; padding-bottom: 5px;">                            <h5 class="card-title" style="margin-bottom: 5px;">
+                            {{product.product_name}}
+                        </h5>
+                        <h6>
+                            {{product.product_price}}
+                        </h6>
+                    </div>
+                </div>
+            </div>    
+        </a>
+    </div>
+</section>    
 	{% endfor %}
 
 {% endblock %}
