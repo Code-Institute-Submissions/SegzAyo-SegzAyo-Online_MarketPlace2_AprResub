@@ -1,6 +1,120 @@
 {% extends "base.html" %}
 {% block content %}
 
+<section class="container-fluid baseContainer">
+    <div class="welcomeMessage">
+        <h1>Welcome to Marketsquare</h1>
+        <h6>What do you want to buy today</h6>
+    </div>
+    <form id="searchForm" class="row searchForm justify-content-center">
+        <input id="word" name="word" type="text" class=" form-control form-control-sm col-8 col-xs-6 col-md-4 col-lg-5 center-align my-auto validate" required>
+        <button type="submit" class="btn btn-sm btn-dark col-3 col-md-2 col-lg-1 center-align my-auto">
+        Search <i class="fas-fa-sign-in-alt"></i>
+        </button>
+    </form>
+</section>
+<section>
+    <div class="row justify-content-center" style="height:300px;">
+        <div class="col-6 col-md-4 my-auto">
+            <div class="profileImage ml-auto"></div>
+        </div>
+        <div class="col-6 col-md-4 my-auto" id="profile">
+            <h4>{{ seller.seller_name }}</h4>
+            <h>{{ seller.seller_city }}</h6>
+            <h6>{{ seller.seller_email }}</h6>
+            <h6>{{ seller.seller_phone }}</h6>
+        <button class="submit btn btn-dark" id="edit_profile">Edit profile</button>
+    </div>
+    </div>
+</section>
+<div class="card row">
+    <div class="card-body mx-auto col-10 col-md-4">
+        <form method="POST" action="{{ url_for('list_product', userId=user_id) }}">
+        <p class="h4 text-center py-4">New listing</p>
+        <!---- Username input-->  
+            <div class="md-form">
+                <label for="category_id">Category</label>
+                <select class="form-control form-control-sm" id="category_id" name="category_id">
+                {% for category in categories %}
+                <option value="{{ category.id }}">
+                    {{ category.name }}
+                </option>
+                {% endfor %}
+                </select>
+            </div>
+            <!---- Username input-->
+            <div class="md-form">
+                <label class="font-weight-light" for="product_name"></i>Name</label>
+                <input class="form-control form-control-sm" id="product_name" name="product_name" type="text"class="validate" required>
+            </div>
+            <!---- Password input-->
+            <div class="md-form">
+                <label class="font-weight-light" for="product_price"></i>Price</label>
+                <input class="form-control form-control-sm" id="product_price" name="product_price" type="text"class="validate" required>
+            </div>
+        <!---- Username input-->
+            <div class="md-form">
+                <label class="font-weight-light" for="phone">Description</label>
+                <textarea class="form-control form-control-sm" id="product_description" name="product_description" type="textarea"
+                class="validate"></textarea>
+            </div>
+        <!---- Register button-->
+            <div class="text-center py-4 mt-3">
+                <button type="submit" class="btn btn-sm btn-dark">
+                    Submit
+                </button>
+            </div>
+        </form>
+    </div>    
+</div>
+
+{% endblock %}
+
+<div class="card row">
+    <div class="card-body mx-auto col-10 col-md-4">
+        <form method="POST" action="{{ url_for('list_product', userId=user_id) }}">
+        <p class="h4 text-center py-4">Sign up</p>
+        <!---- Username input-->  
+            <div class="md-form">
+                <label for="category_id">Category</label>
+                <select class="form-control" id="category_id" name="category_id">
+                {% for category in categories %}
+                <option value="{{ category.id }}">
+                    {{ category.name }}
+                </option>
+                {% endfor %}
+                </select>
+            </div>
+            <!---- Username input-->
+            <div class="md-form">
+                <label class="font-weight-light" for="product_name"></i> Email</label>
+                <input class="form-control" id="product_name" name="product_name" type="text"class="validate" required>
+            </div>
+            <!---- Password input-->
+            <div class="md-form">
+                <label class="font-weight-light" for="product_price"></i> Password</label>
+                <input id="product_price" name="product_price" type="text"class="validate" required>
+            </div>
+        <!---- Username input-->
+            <div class="md-form">
+                <label class="font-weight-light" for="phone"><i class="fa fa-phone prefix grey-text"></i> Phone</label>
+                <textarea class="form-control form-control-sm" id="product_description" name="product_description" type="textarea"
+                class="validate"></textarea>
+            </div>
+        <!---- Register button-->
+            <div class="text-center py-4 mt-3">
+                <button type="submit" class="btn btn-sm btn-dark">
+                    Register
+                </button>
+            </div>
+        </form>
+    </div>    
+</div>
+
+
+
+
+
 
 <div class="row">
     <div class="col s12 m8 offset-m2">
@@ -11,57 +125,3 @@
       </div>
     </div>
 </div>
-<h3 class="center-align">List new product</h3>
-<div class="row">
-    <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('list_product', userId=user_id) }}">
-      <div class="card-panel">
-      <!---- Username input-->
-        <div class="row">
-            <div class="input-field col s12">
-                <i class="fas fa-user-plus prefix light-blue-text text-darken-4"></i>
-                <label for="category_id">Category</label>
-                <select id="category_id" name="category_id">
-                {% for category in categories %}
-                <option value="{{ category.id }}">
-                    {{ category.name }}
-                </option>
-                {% endfor %}
-                </select>
-            </div>
-        </div>
-        <!---- Username input-->
-        <div class="row">
-            <div class="input-field col s12">
-                <i class="fas fa-user-plus prefix light-blue-text text-darken-4"></i>
-                <label for="product_name">Name</label>
-                <input id="product_name" name="product_name" type="text"class="validate" required>
-            </div>
-        </div>
-        <!---- Password input-->
-        <div class="row">
-            <div class="input-field col s12">
-                <i class="fas fa-user-lock prefix light-blue-text text-darken-4"></i>
-                <label for="product_price">Price</label>
-                <input id="product_price" name="product_price" type="text"class="validate" required>
-            </div>
-      </div>
-      <!---- Username input-->
-        <div class="row">
-            <div class="input-field col s12">
-                <i class="fas fa-user-plus prefix light-blue-text text-darken-4"></i>
-                <label for="product_description">Description</label>
-                <textarea id="product_description" name="product_description" type="textarea"
-                class="validate"></textarea>
-            </div>
-        </div>
-      <!---- Register button-->
-      <div class="row">
-        <button type="submit" class="col s12 btn-large light-blue darken-4 text-shadow">
-            List <i class="fas-fa-sign-in-alt"></i>
-        </button>
-      </div>
-      </div>
-    </form>
-  </div>
-
-{% endblock %}
