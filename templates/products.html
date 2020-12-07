@@ -18,7 +18,7 @@
         {% for category in categories %}
             <div class="col-4 col-md-2 text-center my-auto">
                 <a href="{{url_for('get_categories', category_id=category.id)}}">
-                    <button type="button" class="btn btn-outline-info">{{category.name}}</button> 
+                    <button type="button" class="btn btn-sm btn-dark">{{category.name}}</button> 
                 </a>
             </div>
         {% endfor %}    

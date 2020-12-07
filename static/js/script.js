@@ -56,21 +56,20 @@ updateForm.addEventListener('submit', (e) => {
     const phone = document.getElementById("phone").value
     const password = document.getElementById("password").value
     const city = document.getElementById("city").value
-    
-    const data = {
-        seller_name: sellerName,
-        email: email,
-        phone: phone,
-        password: password,
-        city: city
-    }
+    const photo = document.getElementById("photo").files[0];
+     let formData = new FormData();
+     formData.append("photo", photo);
+     formData.append("seller_name", sellerName);
+     formData.append("email", email);
+     formData.append("phone", phone);
+     formData.append("password", password);
+     formData.append("city", city);
+     console.log(formData)
+
     
     const options = {
         method: "PUT",
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data)
+        body: formData
     }
 
     // Get logged In user id
@@ -86,7 +85,7 @@ updateForm.addEventListener('submit', (e) => {
     .then(json_data => {
         console.log(json_data)
         document.getElementById('success').innerText = json_data["msg"]
-        window.location.reload()
+        // window.location.reload()
     })
 })
 })

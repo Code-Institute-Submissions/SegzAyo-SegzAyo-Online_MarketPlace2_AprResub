@@ -30,7 +30,8 @@ def get_products():
 def get_categories(category_id):
     category_products = ProductListing.objects(category_id=category_id).all()
     category = Category.objects(id=category_id).first()
-    return render_template("categoryProducts.html", category=category, products=category_products)
+    categories_Data = Category.objects().all()
+    return render_template("categoryProducts.html", category=category, products=category_products,categories=categories_Data)
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
@@ -40,6 +41,7 @@ def register():
         seller_phone_v = request.form.get("phone")
         seller_city_v = request.form.get("city")
         password_v = request.form.get("password")
+
 
         # check if username already exists in db
         existing_seller = Seller.objects(seller_email=seller_email_v).first()
@@ -94,7 +96,6 @@ def login():
 
 @app.route("/users/<userId>", methods=["GET", "PUT"])
 def update_profile(userId):
-    print(userId)
     seller = Seller.objects(id=userId).first()
     if request.method == "GET":
         sellers_listings = ProductListing.objects(seller_id=seller).all()
@@ -104,13 +105,16 @@ def update_profile(userId):
     seller_email_v = request.json.get("email")
     seller_phone_v = request.json.get("phone")
     seller_city_v = request.json.get("city")
-    password_v = request.json.get("password") 
+    password_v = request.json.get("password")
+    seller_photo_v = request.files.get("photo")
+    print(seller_photo_v)
 
     seller.seller_name = seller_name_v
     seller.email = seller_email_v
     seller.phone = seller_phone_v
     seller.city = seller_city_v
     seller.password = password_v
+    seller.seller_photoURL = seller_photo_v
     seller.save()
 
     return jsonify({
@@ -127,6 +131,7 @@ def list_product(userId):
         product_name_v = request.form.get("product_name")
         product_price_v = request.form.get("product_price")
         product_description_v = request.form.get("product_description")
+        product_photoURL = request.form.get("")
 
         # check if product is already listed
         existing_product = ProductListing.objects(product_name=product_name_v).first()
@@ -170,9 +175,41 @@ def sign_out():
     flash("You have been logged out")
     session.pop("user")
     return redirect(url_for("login"))
-    
+
+@app.route("/product/delete/<productId>", methods=["GET"])
+def delete_product(productId):
+    delete_item = ProductListing.objects(id=productId).first()
+    delete_item.delete()
+    userId = session["user_id"]
+    return redirect(url_for("update_profile", userId=userId))    
+
+
+@app.route("/product/update/<productId>", methods=["GET", "POST"])
+def update_product(productId):
+    product = ProductListing.objects(id=productId).first()
+    if request.method == "GET":
+        return render_template("product.html", product=product)
+
+    product_name_v = request.form.get("product_name")
+    product_price_v = request.form.get("product_price")
+    product_description_v = request.form.get("product_description")
+    product_photo_v = request.files.get("photo")
+
+    product.product_name = product_name_v
+    product.product_price = product_price_v
+    product.product_description = product_description_v
+    product.product_photoURL = product_photo_v
+    product.save()
+
+    userId = session["user_id"]
+    return redirect(url_for("update_profile", userId=userId))
+
+
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
             debug=True)    
+
+
+

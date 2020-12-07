@@ -66,6 +66,11 @@
                     <input id="city" name="city" type="text"
                     value="{{seller.seller_city}}" class="form-control validate" required> 
             </div>
+            <div class="md-form">
+                    <label for="photo">Photo</label>
+                    <input id="photo" name="photo" type="file" class="form-control validate" required> 
+            </div>
+
             <input type="hidden" id="userId" value="{{seller.id}}"/>
         <!---- Register button-->
         <div class="row">
@@ -95,6 +100,8 @@
                         <h6>
                             {{product.product_price}}
                         </h6>
+                        <a href="/product/delete/{{ product.id }}">Delete</a>
+                        <a href="/product/update/{{ product.id }}">Update</a>
                     </div>
                 </div>
             </div>

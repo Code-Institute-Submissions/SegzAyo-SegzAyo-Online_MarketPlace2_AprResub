@@ -13,6 +13,7 @@ class Seller(Document):
     seller_city = StringField(required=True)
     seller_email = EmailField(required=True)
     seller_phone = StringField(required=True)
+    seller_photoURL = StringField()
     seller_listings = ListField(StringField(), default=[])
     password_hash = StringField()
     
@@ -30,6 +31,7 @@ class ProductListing(Document):
     category_id = ReferenceField(Category)
     product_name = StringField(required=True, max_length=50)
     product_price = StringField(required=True)
+    product_photoURL = StringField()
     product_description = StringField()
     seller_id = ReferenceField(Seller)
 

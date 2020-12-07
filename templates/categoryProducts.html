@@ -12,13 +12,25 @@
         </button>
     </form>
 </section>
-
+<section class="container-fluid categorySection">
+    <ul>
+        <div class="row justify-content-center" style="padding-top: 100px">
+        {% for category in categories %}
+            <div class="col-4 col-md-2 text-center my-auto">
+                <a href="{{url_for('get_categories', category_id=category.id)}}">
+                    <button type="button" class="btn btn-sm btn-dark">{{category.name}}</button> 
+                </a>
+            </div>
+        {% endfor %}    
+        </div>
+    </ul>
+</section>
 <section class="container">
     <div id="home" class="row justify-content-start" style="padding-top: 50px;">
         <div class="col-12 text-center">
-            <h2>Products for {{ category.name }} Category</h2>
+            <h2>{{ category.name }} Category</h2>
         </div>
-	{% for product in products %}
+	    {% for product in products %}
 	    <a href="#">
             <div class="col-lg-3 col-sm-6 mb-4">
                 <div class="card h-60">

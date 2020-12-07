@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="container-fluid baseContainer">
+    <div class="welcomeMessage">
+        <h1>Welcome to Marketsquare</h1>
+        <h6>What do you want to buy today</h6>
+    </div>
+    <form id="searchForm" class="row searchForm justify-content-center">
+        <input id="word" name="word" type="text" class=" form-control form-control-sm col-8 col-xs-6 col-md-4 col-lg-5 center-align my-auto validate" required>
+        <button type="submit" class="btn btn-sm btn-dark col-3 col-md-2 col-lg-1 center-align my-auto">
+        Search <i class="fas-fa-sign-in-alt"></i>
+        </button>
+    </form>
+</section>
+<div id="update">
+    <h3 class="center-align">Update profile</h3>
+    <div class="row">
+        <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('update_product', productId=product.id) }}">
+        <div class="card-panel">
+        <!---- Update seller_name-->
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="fas fa-user-plus prefix light-blue-text text-darken-4"></i>
+                    <input id="product_name" name="product_name" type="text" 
+                    placeholder="{{product.product_name}}" class="validate" required>
+                    <label for="product_name">Name</label>
+                </div>
+            </div>
+            <!---- Update seller_email-->
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="fas fa-user-plus prefix light-blue-text text-darken-4"></i>
+                    <input id="product_price" name="product_price" type="text"
+                    placeholder="{{product.product_price}}" class="validate" required>
+                    <label for="product_price">Price</label>
+                </div>
+            </div>
+            <!---- Update seller_password-->
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="fas fa-user-lock prefix light-blue-text text-darken-4"></i>
+                    <input id="product_description" name="product_description" type="text" 
+                    placeholder="{{product.product_description}}" class="validate" required>
+                    <label for="product_description">Description</label>
+                </div>
+        </div>
+        <!----Update seller_phone-->
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="fas fa-user-plus prefix light-blue-text text-darken-4"></i>
+                    <input id="photo" name="photo" type="file"
+                    placeholder="{{product.photo_photoURL}}" class="validate">
+                    <label for="photo">Photo</label>
+                </div>
+            </div>
+            </div>
+        <!---- Update button-->
+        <div class="row">
+            <button type="submit" class="col s12 btn-large light-blue darken-4 text-shadow">
+                Register <i class="fas-fa-sign-in-alt"></i>
+            </button>
+        </div>
+        </div>
+        </form>
+    </div>
+</div>  
+{% endblock %}
