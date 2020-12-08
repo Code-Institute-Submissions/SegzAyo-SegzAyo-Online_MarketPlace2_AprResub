@@ -81,7 +81,7 @@ def login():
                session["user"] = existing_seller.seller_name
                session["user_id"] = str(existing_seller.id)
                flash(f"Welcome {existing_seller.seller_name}")
-               return render_template("profile.html", seller=existing_seller)    
+               return render_template("products.html", seller=existing_seller)    
             else:
                 # invalid password match
                 flash("Incorrect Username and/or Password")
@@ -203,6 +203,13 @@ def update_product(productId):
 
     userId = session["user_id"]
     return redirect(url_for("update_profile", userId=userId))
+
+
+
+@app.route("/selected_product/<productId>")
+def selected_product(productId):
+    selected_item = ProductListing.objects(id=productId).first()
+    return render_template("selected_product.html", selected_item=selected_item)
 
 
 

@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="container-fluid baseContainer">
+    <div class="welcomeMessage">
+        <h1>Welcome to Marketsquare</h1>
+        <h6>What do you want to buy today</h6>
+    </div>
+    <form id="searchForm" class="row searchForm justify-content-center">
+        <input id="word" name="word" type="text" class=" form-control form-control-sm col-8 col-xs-6 col-md-4 col-lg-5 center-align my-auto validate" required>
+        <button type="submit" class="btn btn-sm btn-dark col-3 col-md-2 col-lg-1 center-align my-auto">
+        Search <i class="fas-fa-sign-in-alt"></i>
+        </button>
+    </form>
+</section>
+<section class="container-fluid categorySection">
+    <ul>
+        <div class="row justify-content-center" style="padding-top: 100px">
+        {% for category in categories %}
+            <div class="col-4 col-md-2 text-center my-auto">
+                <a href="{{url_for('get_categories', category_id=category.id)}}">
+                    <button type="button" class="btn btn-sm btn-dark">{{category.name}}</button> 
+                </a>
+            </div>
+        {% endfor %}    
+        </div>
+    </ul>
+</section>
+<section class="container">
+    <div id="home" class="row justify-content-start" style="padding-top: 50px;">
+        <div class="col-12 text-center">
+            <h2>Listed items</h2>
+        </div>
+        {% for product in products %}
+        <a href="#">
+                <div class="col-lg-3 col-sm-6 mb-4">
+                    <div class="card h-60">
+                        <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+                        <div class="card-body" style="padding-top: 5px; padding-bottom: 5px;">
+                            <h5 class="card-title" style="margin-bottom: 5px;">
+                                {{product.product_name}}
+                            </h5>
+                            <h6>
+                                {{product.product_price}}
+                            </h6>
+                        </div>
+                    </div>
+                </div>
+        </a>
+        {% endfor %}
+    </div>
+</section>
+<section class="container">
+    <div id="results" style="display: none" class="row justify-content-start">
+        <div class="col-12 text-center">
+            <h2>Searched result</h2>
+        </div>
+        <a href="#">
+            <div class="col-lg-3 col-sm-6 mb-4">
+                <div class="card h-60">
+                    <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+                    <div class="card-body" style="padding-top: 5px; padding-bottom: 5px;">
+                        <h5 class="card-title" style="margin-bottom: 5px;">
+                            <span id="product_name"></span>
+                        </h5>
+                        <h6>
+                            <span id="product_price"></span>
+                        </h6>
+                        <P>
+                            <span id="product_description"></span>
+                        </P>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+</section>
+<section class="container-fluid">
+    <div class="row howToSection justify-content-center">
+        <div class="col-12 col-md-3 my-auto text-center" style="padding-top: 30px; padding-bottom: 30px;">
+            <div class="searchItem mx-auto"></div>
+            <p>Search for items</p>
+        </div>
+        <div class="col-12 col-md-3 my-auto text-center" style="padding-top: 30px; padding-bottom: 30px;">
+            <div class="contactSeller mx-auto"></div>
+            <p>Contact seller</p>
+        </div>
+        <div class="col-12 col-md-3 my-auto text-center" style="padding-top: 30px; padding-bottom: 30px;">
+            <div class="Transact mx-auto"></div>
+            <p>Arrange transaction</p>
+        </div>
+    </div>
+</section>
+{% endblock %} 

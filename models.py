@@ -49,4 +49,3 @@ class ProductListing(Document):
             "product_price": self.product_price
         }
 
-
