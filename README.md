@@ -87,11 +87,19 @@ so Tina has decided to buy a used laptop for her friend so;
 
 ## Features
 ### Existing Features
-* __Navbar__ is featured on all the pages and contains the menu-links for navigation around the website.
+* __Navbar__ features on every page of the website and contains the brand name links to homepage, menu-links to register 
+    and login pages and also navigation around the website.
 ![alt text](assets/images/Navbar.png)
-* __Footer__ also featured on every page and contains the social media icons and navigation links around the website.
+* __Footer__ features on all the pages and also contains navigation links around the website, social media icons, 
+    category buttons and links to register and login pages.
 ![alt text](assets/images/footer.png)
-* __Home page__ is the landing page with medically inclined image and a short pitch of the diagnostic web application 
+* __Home page__ contains the landing image where the welcome message and aso the search engine for visitors 
+    to search for items they want to buy.
+    Next on the home page is the category section which features the buttons of existing categories that buyers 
+    can use to filter the items displaying to a specific category.
+    Also featured on the home page is the listed items section where products and items listed for scale
+    is displayed before a search is carried out.
+    Next to the listed items section is How it works section explaining in three steps how 
 with buttons to schedule a call session with doctors and the other links to the diagnosis page.
 The home also features how the web application works and images of the leading doctors of Hope Diagnostics.
 ![alt text](assets/images/Home-screen.png) ![alt text](assets/images/Mobile-home.png)

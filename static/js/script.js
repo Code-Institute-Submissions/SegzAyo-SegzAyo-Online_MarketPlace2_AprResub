@@ -64,8 +64,6 @@ updateForm.addEventListener('submit', (e) => {
      formData.append("phone", phone);
      formData.append("password", password);
      formData.append("city", city);
-     console.log(formData)
-
     
     const options = {
         method: "PUT",
@@ -85,7 +83,7 @@ updateForm.addEventListener('submit', (e) => {
     .then(json_data => {
         console.log(json_data)
         document.getElementById('success').innerText = json_data["msg"]
-        // window.location.reload()
+        window.location.reload()
     })
 })
 })

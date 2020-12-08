@@ -1,4 +1,7 @@
 import os
+import uuid
+from werkzeug.utils import secure_filename
+
 from flask import (
     Flask, flash, render_template,
     request, redirect, session, url_for, jsonify)
@@ -81,7 +84,8 @@ def login():
                session["user"] = existing_seller.seller_name
                session["user_id"] = str(existing_seller.id)
                flash(f"Welcome {existing_seller.seller_name}")
-               return render_template("products.html", seller=existing_seller)    
+               return render_template("products.html", seller=existing_seller)
+                   
             else:
                 # invalid password match
                 flash("Incorrect Username and/or Password")
@@ -101,20 +105,23 @@ def update_profile(userId):
         sellers_listings = ProductListing.objects(seller_id=seller).all()
         return render_template("profile.html", seller=seller, listings=sellers_listings)
            
-    seller_name_v = request.json.get("seller_name")
-    seller_email_v = request.json.get("email")
-    seller_phone_v = request.json.get("phone")
-    seller_city_v = request.json.get("city")
-    password_v = request.json.get("password")
+    seller_name_v = request.form.get("seller_name")
+    seller_email_v = request.form.get("email")
+    seller_phone_v = request.form.get("phone")
+    seller_city_v = request.form.get("city")
+    password_v = request.form.get("password")
     seller_photo_v = request.files.get("photo")
     print(seller_photo_v)
+
+    photo_url = upload_image("users", seller_photo_v)
+    print(photo_url)
 
     seller.seller_name = seller_name_v
     seller.email = seller_email_v
     seller.phone = seller_phone_v
     seller.city = seller_city_v
     seller.password = password_v
-    seller.seller_photoURL = seller_photo_v
+    seller.seller_photoURL = photo_url
     seller.save()
 
     return jsonify({
@@ -193,12 +200,14 @@ def update_product(productId):
     product_name_v = request.form.get("product_name")
     product_price_v = request.form.get("product_price")
     product_description_v = request.form.get("product_description")
-    product_photo_v = request.files.get("photo")
+    product_photo_v = request.files["photo"]
+
+    photo_url = upload_image("products", product_photo_v)
 
     product.product_name = product_name_v
     product.product_price = product_price_v
     product.product_description = product_description_v
-    product.product_photoURL = product_photo_v
+    product.product_photoURL = photo_url
     product.save()
 
     userId = session["user_id"]
@@ -211,7 +220,32 @@ def selected_product(productId):
     selected_item = ProductListing.objects(id=productId).first()
     return render_template("selected_product.html", selected_item=selected_item)
 
+def upload_image(folder, image):
+    # Set a unique string for each image that will be uploaded
+    image_id = str(uuid.uuid4())[:8]
 
+    # Name of file to be saved
+    file_name = secure_filename(image.filename)
+
+    extracted_name, extension = os.path.splitext(file_name)
+    #"simplefile.png"
+    #"simplefile", ".png"
+
+    filename = extracted_name + "_" + image_id + extension
+    #"simplefile" + "_" + "4554457s" + ".png"
+    #"simplefile_4554475s.png"
+
+    BASE_DIR = os.path.abspath(os.path.dirname(__file__))
+
+    # Store Image in local directory
+    image_path = os.path.join(BASE_DIR + f"/static/images/uploads/{folder}", filename)
+
+    image.save(image_path)
+
+    # Get the image url
+    img_url = url_for('static', filename=f"images/uploads/{folder}/{filename}")
+
+    return img_url
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),

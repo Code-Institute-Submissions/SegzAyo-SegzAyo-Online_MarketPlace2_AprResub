@@ -16,7 +16,7 @@
 <section>
     <div class="row justify-content-center" style="height:300px;">
         <div class="col-6 col-md-4 my-auto">
-            <div class="profileImage ml-auto"></div>
+            <div class="ml-auto"><img class="profileImage img-fluid" src="{{ seller.seller_photoURL }}" /></div>
         </div>
         <div class="col-6 col-md-4 my-auto" id="profile">
             <h4>{{ seller.seller_name }}</h4>
@@ -92,7 +92,7 @@
     <a href="#">
             <div class="col-lg-3 col-sm-6 mb-4">
                 <div class="card h-60">
-                    <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+                    <a href="#" style="background-size: cover; "><img class="img-fluid" src="{{ product.product_photoURL }}" /></a>
                     <div class="card-body" style="padding-top: 5px; padding-bottom: 5px;">
                         <h5 class="card-title" style="margin-bottom: 5px;">
                             {{product.product_name}}
