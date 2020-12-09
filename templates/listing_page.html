@@ -15,8 +15,8 @@
 </section>
 <section>
     <div class="row justify-content-center" style="height:300px;">
-        <div class="col-6 col-md-4 my-auto">
-            <div class="profileImage ml-auto"></div>
+        <div class="col-6 col-md-4 my-auto justify-content-end">
+            <div class=""><img class="profileImage img-fluid" src="{{ seller.seller_photoURL }}"/></div>
         </div>
         <div class="col-6 col-md-4 my-auto" id="profile">
             <h4>{{ seller.seller_name }}</h4>
@@ -29,7 +29,7 @@
 </section>
 <div class="card row">
     <div class="card-body mx-auto col-10 col-md-4">
-        <form method="POST" action="{{ url_for('list_product', userId=user_id) }}">
+        <form method="POST" action="{{ url_for('list_product', userId=user_id) }}" enctype="multipart/form-data">
         <p class="h4 text-center py-4">New listing</p>
         <!---- Username input-->  
             <div class="md-form">
@@ -58,6 +58,10 @@
                 <textarea class="form-control form-control-sm" id="product_description" name="product_description" type="textarea"
                 class="validate"></textarea>
             </div>
+            <div class="md-form">
+                    <label for="photo">Photo</label>
+                    <input id="photo" name="photo" type="file" class="form-control validate" required> 
+            </div>
         <!---- Register button-->
             <div class="text-center py-4 mt-3">
                 <button type="submit" class="btn btn-sm btn-dark">
@@ -72,7 +76,7 @@
 
 <div class="card row">
     <div class="card-body mx-auto col-10 col-md-4">
-        <form method="POST" action="{{ url_for('list_product', userId=user_id) }}">
+        <form method="POST" enctype="multipart/form-data" action="{{ url_for('list_product', userId=user_id) }}">
         <p class="h4 text-center py-4">Sign up</p>
         <!---- Username input-->  
             <div class="md-form">

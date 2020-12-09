@@ -84,6 +84,7 @@ def login():
                session["user"] = existing_seller.seller_name
                session["user_id"] = str(existing_seller.id)
                flash(f"Welcome {existing_seller.seller_name}")
+               return redirect(url_for("get_products"))
                return render_template("products.html", seller=existing_seller)
                    
             else:
@@ -111,10 +112,8 @@ def update_profile(userId):
     seller_city_v = request.form.get("city")
     password_v = request.form.get("password")
     seller_photo_v = request.files.get("photo")
-    print(seller_photo_v)
 
     photo_url = upload_image("users", seller_photo_v)
-    print(photo_url)
 
     seller.seller_name = seller_name_v
     seller.email = seller_email_v
@@ -138,7 +137,9 @@ def list_product(userId):
         product_name_v = request.form.get("product_name")
         product_price_v = request.form.get("product_price")
         product_description_v = request.form.get("product_description")
-        product_photoURL = request.form.get("")
+        product_photo_v = request.files["photo"]
+      
+        photo_url = upload_image("products", product_photo_v)
 
         # check if product is already listed
         existing_product = ProductListing.objects(product_name=product_name_v).first()
@@ -149,10 +150,12 @@ def list_product(userId):
             return redirect(url_for("list_product"))
 
         new_listing = ProductListing(category_id=category_id, product_name=product_name_v, 
-            product_price=product_price_v, product_description=product_description_v, seller_id=seller)
+            product_price=product_price_v, product_description=product_description_v, seller_id=seller, product_photoURL=photo_url)
 
         new_listing.save()
         flash("Item listed")
+
+        return redirect(url_for("list_product", userId=userId))
 
     return render_template("listing_page.html", seller=seller, categories=categories)
 
@@ -215,10 +218,14 @@ def update_product(productId):
 
 
 
-@app.route("/selected_product/<productId>")
+@app.route("/selected-product/<productId>")
 def selected_product(productId):
     selected_item = ProductListing.objects(id=productId).first()
-    return render_template("selected_product.html", selected_item=selected_item)
+    #seller = Seller.objects(id=selected_item.seller_id).first()
+    print(selected_item.seller_id)
+    return render_template("selected_product.html", product=selected_item)
+
+    
 
 def upload_image(folder, image):
     # Set a unique string for each image that will be uploaded

@@ -16,7 +16,7 @@
 <section>
     <div class="row justify-content-center" style="height:300px;">
         <div class="col-6 col-md-4 my-auto">
-            <div class="ml-auto"><img class="profileImage img-fluid" src="{{ seller.seller_photoURL }}" /></div>
+            <div class="justify-content-end"><img class="profileImage ml-auto img-fluid" src="{{ seller.seller_photoURL }}"/></div>
         </div>
         <div class="col-6 col-md-4 my-auto" id="profile">
             <h4>{{ seller.seller_name }}</h4>
@@ -89,19 +89,21 @@
             <h2></h2>
         </div>
 {% for product in listings %}
-    <a href="#">
+    <a href="">
             <div class="col-lg-3 col-sm-6 mb-4">
-                <div class="card h-60">
-                    <a href="#" style="background-size: cover; "><img class="img-fluid" src="{{ product.product_photoURL }}" /></a>
-                    <div class="card-body" style="padding-top: 5px; padding-bottom: 5px;">
-                        <h5 class="card-title" style="margin-bottom: 5px;">
-                            {{product.product_name}}
-                        </h5>
-                        <h6>
-                            {{product.product_price}}
-                        </h6>
-                        <a href="/product/delete/{{ product.id }}">Delete</a>
-                        <a href="/product/update/{{ product.id }}">Update</a>
+                <div class="card-deck">
+                    <div class="card h-60">
+                        <a href="#"><img class="card-img-top imageHeight img-fluid" src="{{ product.product_photoURL }}" /></a>
+                        <div class="card-body" style="padding-top: 5px; padding-bottom: 5px;">
+                            <h5 class="card-title" style="margin-bottom: 5px;">
+                                {{product.product_name}}
+                            </h5>
+                            <h6>
+                                {{product.product_price}}
+                            </h6>
+                            <a href="/product/delete/{{ product.id }}">Delete</a>
+                            <a href="/product/update/{{ product.id }}">Update</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -127,49 +129,3 @@
 </section>       
 
 {% endblock %}
-
-
-
-<div id="update" style="display: none">
-<h3 class="center-align">Update profile</h3>
-<h2 id="success"></h2>
-<div class="row">
-<form method="POST" action="" id="updateForm">
-        <p class="h4 text-center py-4">Sign up</p>
-        <!---- Username input-->  
-            <div class="md-form">
-                <label class="font-weight-light" for="seller_name"><i class="fa fa-user prefix grey-text"></i> Username</label>
-                <input class="form-control validate" id="seller_name" name="seller_name" type="text" 
-                value="{{seller.seller_name}}" class="validate" required>
-                
-            </div>
-            <!---- Username input-->
-            <div class="md-form">
-                <label class="font-weight-light" for="email"><i class="fa fa-envelope prefix grey-text"></i> Email</label>
-                <input class="form-control" id="email" name="email" type="email"
-                value="{{seller.seller_email}}" class="validate" required>
-            <!---- Password input-->
-            <div class="md-form">
-                <label class="font-weight-light" for="password"><i class="fa fa-lock prefix grey-text"></i> Password</label>
-                <input class="form-control validate" id="password" name="password" type="password" 
-                value="{{seller.password_hash}}" class="validate" required>
-            </div>
-        <!---- Username input-->
-            <div class="md-form">
-                <label class="font-weight-light" for="phone"><i class="fa fa-phone prefix grey-text"></i> Phone</label>
-                <input class="form-control" id="phone" name="phone" type="text"
-                value="{{seller.seller_phone}}" class="validate" required>
-            </div>
-            <!---- Username input-->
-            <div class="md-form">
-                <label class="font-weight-light" for="city"><i class="fa fa-city prefix grey-text"></i> City</label>
-                <input class="form-control validate" id="city" name="city" type="text"
-                value="{{seller.seller_city}}" class="validate" required>
-            </div>
-        <!---- Register button-->
-            <div class="text-center py-4 mt-3">
-                <button type="submit" class="btn btn-dark">
-                    Register <i class="fas-fa-sign-in-alt"></i>
-                </button>
-            </div>
-        </form>

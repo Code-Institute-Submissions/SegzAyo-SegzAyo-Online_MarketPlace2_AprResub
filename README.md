@@ -50,15 +50,15 @@ on the Diploma in Software Development at Code Institute.
 #### Persona
 Anna is a software developer that just secured a job outside the country, she has 
 some household items and furnitures she wants to sell before relocating.
-Justin is a craftsman that specializes in woodwork and he is looking to sell his 
-works without renting a to showcase his craft.
+Justin is a craftsman that specializes in woodwork and he is looking for means of selling his 
+works without renting an outlet to showcase his craft.
 They both:
 * Register on Marketsquare and created a profile.
 * Listed the items they want to sell with detailed Information.
 * Manage information of listed items and delete items that are out of stock.
 
 Tina's friend needs a laptop for studies, her friend cannot afford it at the moment 
-so Tina has decided to buy a used laptop for her friend so;
+so Tina has decided to buy a used laptop for her friend,so;
 * Tina visits Marketsquare and searched for a laptop in the search engine.
 * Tina gets a search result of laptops listed on Marketsquare.
 * Tina clicks on the ones with competitive prices to read more about them.
@@ -93,19 +93,31 @@ so Tina has decided to buy a used laptop for her friend so;
 * __Footer__ features on all the pages and also contains navigation links around the website, social media icons, 
     category buttons and links to register and login pages.
 ![alt text](assets/images/footer.png)
-* __Home page__ contains the landing image where the welcome message and aso the search engine for visitors 
+* __Home page__ contains the landing image where the welcome message and also the search engine for visitors 
     to search for items they want to buy.
     Next on the home page is the category section which features the buttons of existing categories that buyers 
     can use to filter the items displaying to a specific category.
     Also featured on the home page is the listed items section where products and items listed for scale
     is displayed before a search is carried out.
-    Next to the listed items section is How it works section explaining in three steps how 
-with buttons to schedule a call session with doctors and the other links to the diagnosis page.
-The home also features how the web application works and images of the leading doctors of Hope Diagnostics.
-![alt text](assets/images/Home-screen.png) ![alt text](assets/images/Mobile-home.png)
-* __Diagnosis page__ features the instruction on how to use the diagnosis system and right below is the patient's 
-data input point for the diagnosis. Also on the this page is navbar and the footer.
-![alt text](assets/images/Diagnosis-bg.png) ![alt text](assets/images/Diagnosis-mobile.png)
+![alt text](assets/images/footer.png)    
+    Next to the listed items section is How it works section explaining in three steps how the website works
+* __User profile page__ contains the information and profile picture of a registered vendor with an update 
+    button that allows the vendor to update personal information, also on the page is the items listed by 
+    the vendor which also gives the vendor the ability to update or delete a listed item. a vendor will only 
+    access this page on registering or login.
+![alt text](assets/images/footer.png)    
+* __Item Listing page__ can only be accessed by logged in users and this is where new items or products are 
+    uploaded into the database and every item is connected to the vendor through a unique id.
+![alt text](assets/images/footer.png)    
+* __Register page__ is where a new user creates an acount with some information required of the user,such as 
+    username, email, password, phone, and city which are recieved through a simple input form.
+![alt text](assets/images/footer.png)    
+* __Login page__ provides a standard login form for registered user to access their personal profile and 
+    listings. The login form requests an email and password for a user to sign in.
+![alt text](assets/images/footer.png)    
+* __Log out__ allows a signed in user to log out of their page therefore clearing their user session and 
+    redirecting to the login page.
+![alt text](assets/images/footer.png)
 
 
 ## Technology Used
@@ -114,7 +126,8 @@ data input point for the diagnosis. Also on the this page is navbar and the foot
 * __Adobe Illustrator__ used for wireframe design.
 * __Adobe Photoshop__ used for image resize and compression.
 * __Git__ for version control
-* __Coolors__ for color palette generation
+* __Heroku__ for hosting of the website.
+* __Coolors__ for color palette generation.
 
 
 ### Libraries
@@ -123,6 +136,7 @@ data input point for the diagnosis. Also on the this page is navbar and the foot
 * [jQuery](https://jquery.com/) To simplify DOM manipulation.
 * [Font Awasome](https://fontawesome.com/) To incorporate icons.
 * [Apimedic API](https://apimedic.com/news) Provides the data for the web application.
+* [Ginger Framework](https://ginger.amdocs.com/) Provides automation for code re-usability.
 
 ### Programming Languages
 * HTML
@@ -130,6 +144,10 @@ data input point for the diagnosis. Also on the this page is navbar and the foot
 * Javascript
 * Python
 * Ginger Template
+
+### Database
+* MongoDB
+
 
 ## Test
 The following tools were used to validate and beautify the codes:
@@ -168,8 +186,7 @@ To test the diagnosis web app, use the following combinations of symptoms:
 
 
 ### Limitations
-* The API endpoint used in this project is the Sandbox, which returns a dummy 
-diagnostic data. I decided use the Sandbox because the live API is often offline.
+* Marketsquare . I decided use the Sandbox because the live API is often offline.
 * The clear button only clears the logged symptoms and Diagnosis 
 results, the year of birth and sex remains until page reloads or manually removed.
 * when symptom combinations returns no diagnosis result, there is no message to 

@@ -26,14 +26,13 @@
     </ul>
 </section>
 <section class="container">
-    <div id="home" class="row justify-content-start" style="padding-top: 50px;">
+    <div id="home" class="row justify-content-start" style="padding-top: 50px;" >
         <div class="col-12 text-center">
             <h2>Listed items</h2>
         </div>
-        <a href="#">
                 <div class="col-lg-3 col-sm-6 mb-4">
                     <div class="card h-60">
-                        <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+                        <a href=""><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
                         <div class="card-body" style="padding-top: 5px; padding-bottom: 5px;">
                             <h5 class="card-title" style="margin-bottom: 5px;">
                                 {{product.product_name}}
@@ -41,10 +40,15 @@
                             <h6>
                                 {{product.product_price}}
                             </h6>
+                            <p>
+                                 {{product.product_description}}
+                            </p>
+                            <p>
+                                {{ product.seller_id.seller_name }}
+                            </p>
                         </div>
                     </div>
                 </div>
-        </a>
     </div>
 </section>
 <section class="container">
