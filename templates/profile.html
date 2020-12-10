@@ -2,12 +2,12 @@
 {% block content %}
 <section class="container-fluid baseContainer">
     <div class="welcomeMessage">
-        <h1>Welcome to Marketsquare</h1>
-        <h6>What do you want to buy today</h6>
+        <h1 class="Titles">Welcome to <span class="brand_name">marketsquare</span></h1>
+        <h5>What do you want to buy today</h5>
     </div>
     <form id="searchForm" class="row searchForm justify-content-center">
-        <input id="word" name="word" type="text" class="form-control col-8 col-xs-6 col-md-4 col-lg-5 center-align my-auto validate" required>
-        <button type="submit" class="btn btn-dark col-3 col-md-2 col-lg-1 center-align my-auto">
+        <input id="word" name="word" type="text" class="form-control form-control-sm col-8 col-xs-6 col-md-4 col-lg-5 center-align my-auto validate" required>
+        <button type="submit" class="btn btn-sm btn-dark col-3 col-md-2 col-lg-1 center-align my-auto">
         Search <i class="fas-fa-sign-in-alt"></i>
         </button>
     </form>
@@ -32,7 +32,7 @@
 <div id="update" style="display: none">
 <h2 id="success"></h2>
 <div class="card row justify-content-center">
-    <h3 class="mx-auto">Update profile</h3>
+    <h3 class="mx-auto Titles">Update profile</h3>
     <div class="card-body mx-auto col-10 col-md-4">
         <form action="" id="updateForm">
         <div class="card-panel">
@@ -83,7 +83,7 @@
     </div>
 </div>
 </div>
-<section class="container">
+<section class="container item_display">
     <div id="home" class="row justify-content-start" style="padding-top: 50px;">
         <div class="col-12 text-center">
             <h2></h2>
@@ -113,6 +113,7 @@
 </section>
 <section class="container-fluid">
     <div class="row howToSection justify-content-center">
+        <h2 class="col-12 col-md-12 my-auto Titles text-center">How It Works</h2>
         <div class="col-12 col-md-3 my-auto text-center" style="padding-top: 30px; padding-bottom: 30px;">
             <div class="searchItem mx-auto"></div>
             <p>Search for items</p>
@@ -126,6 +127,5 @@
             <p>Arrange transaction</p>
         </div>
     </div>
-</section>       
-
+</section>
 {% endblock %}

@@ -1,4 +1,27 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400&family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bellota+Text:wght@700&family=Open+Sans&family=Pacifico&family=Roboto+Condensed:wght@300&display=swap');
+body {
+    font-family: "Open sans";
+}
+
+/*-----Navbar----*/
+
+.navbar-brand {
+    font-family: "Pacifico";
+    font-size: 25px;
+}
+
+.bg-dark {
+    background-color: #02040f! important;
+}
+
+.brand_name {
+    font-family: "Pacifico";
+}
+
+.Titles {
+    font-family: "Bellota Text";
+    font-weight: bold;
+}
 
 /*----------------------General--*/
 .welcomeMessage {
@@ -6,9 +29,16 @@
     color: #fff;
 }
 
+.btn-dark {
+    color: #fff;
+    background-color: #02040f;
+    border-color:  #02040f;
+    margin-top: 5px;
+    margin-bottom; 5px;
+}
+
 .categorySection {
-    background-color: #F8F9FA;
-    height: 250px;
+    background-color: #fca311;
 }
 
 .searchForm {
@@ -34,6 +64,11 @@
     background-image: url("/static/images/13416400251535694869-128.png");
     background-size: cover;
     background-position: center;
+}
+
+.item_display {
+    height: 600px;
+    overflow: auto
 }
 
 .howToSection {

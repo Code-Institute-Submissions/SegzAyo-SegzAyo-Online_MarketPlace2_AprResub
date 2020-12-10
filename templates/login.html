@@ -2,8 +2,8 @@
 {% block content %}
 <section class="container-fluid baseContainer">
     <div class="welcomeMessage">
-        <h1>Welcome to Marketsquare</h1>
-        <h6>What do you want to buy today</h6>
+        <h1 class="Titles">Welcome to <span class="brand_name">marketsquare</span></h1>
+        <h5>What do you want to buy today</h5>
     </div>
     <form id="searchForm" class="row searchForm justify-content-center">
         <input id="word" name="word" type="text" class="form-control form-control-sm col-8 col-xs-6 col-md-4 col-lg-5 center-align my-auto validate" required>
@@ -46,6 +46,7 @@
 </div>
 <section class="container-fluid">
     <div class="row howToSection justify-content-center">
+        <h2 class="col-12 col-md-12 my-auto Titles text-center">How It Works</h2>
         <div class="col-12 col-md-3 my-auto text-center" style="padding-top: 30px; padding-bottom: 30px;">
             <div class="searchItem mx-auto"></div>
             <p>Search for items</p>
@@ -59,6 +60,6 @@
             <p>Arrange transaction</p>
         </div>
     </div>
-</section>    
+</section>
 
 {% endblock %}
