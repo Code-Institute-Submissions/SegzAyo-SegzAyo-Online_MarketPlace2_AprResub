@@ -8,7 +8,18 @@ body {
 .navbar-brand {
     font-family: "Pacifico";
     font-size: 25px;
+    color: #fca311! important;
+    z-index: 1020;
+    box-shadow: 0 .5rem .5rem -.5rem rgba(0,0,0,.2)!important;
 }
+
+.footer-brand{
+    font-family: "Pacifico";
+    font-size: 30px;
+    color: #fca311! important;
+    
+}
+
 
 .bg-dark {
     background-color: #02040f! important;
@@ -16,11 +27,19 @@ body {
 
 .brand_name {
     font-family: "Pacifico";
+    color: #fca311;
 }
 
 .Titles {
     font-family: "Bellota Text";
     font-weight: bold;
+}
+
+.Listed_Title {
+    font-family: "Bellota Text";
+    font-weight: bold;
+    z-index: 1020;
+    box-shadow: 0 .5rem .5rem -.5rem rgba(0,0,0,.2)!important;
 }
 
 /*----------------------General--*/
@@ -59,7 +78,7 @@ body {
     height: 100px;
     width: 100px;
     border-radius: 50%;
-    border-color: pink;
+    border-color: #02040f;
     border-style: solid;
     background-image: url("/static/images/13416400251535694869-128.png");
     background-size: cover;
@@ -72,14 +91,14 @@ body {
 }
 
 .howToSection {
-    background-color: #F8F9FA;
+    background-color: #fca311;
 }
 
 .contactSeller {
     height: 100px;
     width: 100px;
     border-radius: 50%;
-    border-color: pink;
+    border-color: #02040f;
     border-style: solid;
     background-image: url("/static/images/16100242721538115828-128.png");
     background-size: cover;
@@ -90,7 +109,7 @@ body {
     height: 100px;
     width: 100px;
     border-radius: 50%;
-    border-color: pink;
+    border-color: #02040f;
     border-style: solid;
     background-image: url("/static/images/handshake.png");
     background-size: cover;

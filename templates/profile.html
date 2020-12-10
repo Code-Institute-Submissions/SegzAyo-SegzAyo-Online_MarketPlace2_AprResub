@@ -28,61 +28,61 @@
     </div>
 </section>
 
-
-<div id="update" style="display: none">
-<h2 id="success"></h2>
-<div class="card row justify-content-center">
-    <h3 class="mx-auto Titles">Update profile</h3>
-    <div class="card-body mx-auto col-10 col-md-4">
-        <form action="" id="updateForm">
-        <div class="card-panel">
-        <!---- Update seller_name-->
-                <div class="md-form">
-                    <label for="seller_name">Username</label>
-                    <input id="seller_name" name="seller_name" type="text" 
-                    value="{{seller.seller_name}}" class="form-control validate" required>
+<div class="container" style="background-color: #f8f9fa;">
+    <div id="update" style="display: none">
+    <h2 id="success"></h2>
+    <div class="card row justify-content-center">
+        <h3 class="mx-auto Titles">Update profile</h3>
+        <div class="card-body mx-auto col-10 col-md-4">
+            <form action="" id="updateForm">
+            <div class="card-panel">
+            <!---- Update seller_name-->
+                    <div class="md-form">
+                        <label for="seller_name">Username</label>
+                        <input id="seller_name" name="seller_name" type="text" 
+                        value="{{seller.seller_name}}" class="form-control validate" required>
+                    </div>
+                <!---- Update seller_email-->
+                    <div class="md-form">
+                        <label for="email">Email</label>
+                        <input id="email" name="email" type="email"
+                        value="{{seller.seller_email}}" class="form-control validate" required>
                 </div>
-            <!---- Update seller_email-->
-                <div class="md-form">
-                    <label for="email">Email</label>
-                    <input id="email" name="email" type="email"
-                    value="{{seller.seller_email}}" class="form-control validate" required>
+                <!---- Update seller_password-->
+                    <div class="md-form">
+                        <label for="password">Password</label>
+                        <input id="password" name="password" type="password" 
+                        value="{{seller.password_hash}}" class="form-control validate" required> 
             </div>
-            <!---- Update seller_password-->
+            <!----Update seller_phone-->
+                    <div class="md-form">
+                        <label for="username">Phone</label>
+                        <input id="phone" name="phone" type="text"
+                        value="{{seller.seller_phone}}" class="form-control validate" required>
+                </div>
+                <!----Update seller_city-->
+                    <div class="md-form">
+                        <label for="city">City</label>
+                        <input id="city" name="city" type="text"
+                        value="{{seller.seller_city}}" class="form-control validate" required> 
+                </div>
                 <div class="md-form">
-                    <label for="password">Password</label>
-                    <input id="password" name="password" type="password" 
-                    value="{{seller.password_hash}}" class="form-control validate" required> 
-        </div>
-        <!----Update seller_phone-->
-                <div class="md-form">
-                    <label for="username">Phone</label>
-                    <input id="phone" name="phone" type="text"
-                    value="{{seller.seller_phone}}" class="form-control validate" required>
-            </div>
-            <!----Update seller_city-->
-                <div class="md-form">
-                    <label for="city">City</label>
-                    <input id="city" name="city" type="text"
-                    value="{{seller.seller_city}}" class="form-control validate" required> 
-            </div>
-            <div class="md-form">
-                    <label for="photo">Photo</label>
-                    <input id="photo" name="photo" type="file" class="form-control validate" required> 
-            </div>
+                        <label for="photo">Photo</label>
+                        <input id="photo" name="photo" type="file" class="form-control validate" required> 
+                </div>
 
-            <input type="hidden" id="userId" value="{{seller.id}}"/>
-        <!---- Register button-->
-        <div class="row">
-            <button type="submit" id="updateBtn" class="btn btn-dark">
-                Update profiles <i class="fas-fa-sign-in-alt"></i>
-            </button>
+                <input type="hidden" id="userId" value="{{seller.id}}"/>
+            <!---- Register button-->
+            <div class="row">
+                <button type="submit" id="updateBtn" class="btn btn-dark">
+                    Update profiles <i class="fas-fa-sign-in-alt"></i>
+                </button>
+            </div>
+            </div>
+            </form>
         </div>
-        </div>
-        </form>
     </div>
-</div>
-</div>
+    </div>
 <section class="container item_display">
     <div id="home" class="row justify-content-start" style="padding-top: 50px;">
         <div class="col-12 text-center">
