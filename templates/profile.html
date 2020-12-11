@@ -16,7 +16,7 @@
 <section>
     <div class="row justify-content-center" style="height:300px;">
         <div class="col-6 col-md-4 my-auto">
-            <div class="justify-content-end"><img class="profileImage ml-auto img-fluid" src="{{ seller.seller_photoURL }}"/></div>
+            <div class="justify-content-end"><img class="profileImage d-flex ml-auto img-fluid" src="{{ seller.seller_photoURL }}"/></div>
         </div>
         <div class="col-6 col-md-4 my-auto" id="profile">
             <h4>{{ seller.seller_name }}</h4>
@@ -27,8 +27,7 @@
     </div>
     </div>
 </section>
-
-<div class="container" style="background-color: #f8f9fa;">
+<section class="container" style="background-color: #f8f9fa;">
     <div id="update" style="display: none">
     <h2 id="success"></h2>
     <div class="card row justify-content-center">
@@ -74,7 +73,7 @@
                 <input type="hidden" id="userId" value="{{seller.id}}"/>
             <!---- Register button-->
             <div class="row">
-                <button type="submit" id="updateBtn" class="btn btn-dark">
+                <button type="submit" id="updateBtn" class="btn btn-sm btn-dark">
                     Update profiles <i class="fas-fa-sign-in-alt"></i>
                 </button>
             </div>
@@ -82,38 +81,39 @@
             </form>
         </div>
     </div>
-    </div>
-<section class="container item_display">
-    <div id="home" class="row justify-content-start" style="padding-top: 50px;">
-        <div class="col-12 text-center">
-            <h2></h2>
-        </div>
-{% for product in listings %}
-    <a href="">
-            <div class="col-lg-3 col-sm-6 mb-4">
-                <div class="card-deck">
-                    <div class="card h-60">
-                        <a href="#"><img class="card-img-top imageHeight img-fluid" src="{{ product.product_photoURL }}" /></a>
-                        <div class="card-body" style="padding-top: 5px; padding-bottom: 5px;">
-                            <h5 class="card-title" style="margin-bottom: 5px;">
-                                {{product.product_name}}
-                            </h5>
-                            <h6>
-                                {{product.product_price}}
-                            </h6>
-                            <a href="/product/delete/{{ product.id }}">Delete</a>
-                            <a href="/product/update/{{ product.id }}">Update</a>
+</section>
+    <section class="container item_display">
+        <div id="home" class="row justify-content-start" style="padding-top: 50px;">
+            <div class="col-12 text-center">
+                <h2></h2>
+            </div>
+    {% for product in listings %}
+        <a href="">
+                <div class="col-lg-3 col-sm-6 mb-4">
+                    <div class="card-deck">
+                        <div class="card h-60">
+                            <a href="#"><img class="card-img-top imageHeight img-fluid" src="{{ product.product_photoURL }}" alt=" Item photo"/></a>
+                            <div class="card-body" style="padding-top: 5px; padding-bottom: 5px;">
+                                <h5 class="card-title" style="margin-bottom: 5px;">
+                                    {{product.product_name}}
+                                </h5>
+                                <h6>
+                                    {{product.product_price}}
+                                </h6>
+                                <a class="btn btn-sm btn-dark" href="/product/delete/{{ product.id }}">Delete</a>
+                                <a class="btn btn-sm btn-dark" href="/product/update/{{ product.id }}">Update</a>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </a>
-    {% endfor %}
-    </div>
-</section>
+            </a>
+        {% endfor %}
+        </div>
+    </section>
+
 <section class="container-fluid">
     <div class="row howToSection justify-content-center">
-        <h2 class="col-12 col-md-12 my-auto Titles text-center">How It Works</h2>
+        <h2 class="col-12 col-md-12 my-auto Titles text-center" style="padding-top: 20px;">How It Works</h2>
         <div class="col-12 col-md-3 my-auto text-center" style="padding-top: 30px; padding-bottom: 30px;">
             <div class="searchItem mx-auto"></div>
             <p>Search for items</p>

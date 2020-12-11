@@ -14,7 +14,7 @@
 </section>
 <section class="container-fluid categorySection">
     <ul>
-        <div class="row justify-content-center" style="padding-top: 100px">
+        <div class="row justify-content-center" style="padding-left: 0; padding-top:40px; padding-bottom: 40px;">
         {% for category in categories %}
             <div class="col-4 col-md-2 text-center my-auto">
                 <a href="{{url_for('get_categories', category_id=category.id)}}">
@@ -25,28 +25,73 @@
         </div>
     </ul>
 </section>
-<section class="container">
+<section class="container" style="background-color: #f8f9fa;">
     <div id="home" class="row justify-content-start" style="padding-top: 50px;">
         <div class="col-12 text-center">
             <h2 class="Titles">{{ category.name }} Category</h2>
         </div>
-	    {% for product in products %}
-	    <a href="#">
+        {% for product in products %}
             <div class="col-lg-3 col-sm-6 mb-4">
                 <div class="card h-60">
-                    <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-                    <div class="card-body" style="padding-top: 5px; padding-bottom: 5px;">                            <h5 class="card-title" style="margin-bottom: 5px;">
+                    <a href="#"><img class="card-img-top imageHeight img-fluid" src="{{ product.product_photoURL }}" alt="" /></a>
+                    <div class="card-body" style="padding-top: 5px; padding-bottom: 5px;">
+                        <h5 class="card-title" style="margin-bottom: 5px;">
                             {{product.product_name}}
                         </h5>
                         <h6>
                             {{product.product_price}}
                         </h6>
                     </div>
-                </div>
-            </div>    
-        </a>
+                </div>       
+        </div>
+        {% endfor %} 
     </div>
-</section>    
-	{% endfor %}
+</section>
+<section class="container-fluid">
+    <div class="row howToSection justify-content-center">
+        <h2 class="col-12 col-md-12 my-auto Titles text-center" style="padding-top: 20px;">How It Works</h2>
+        <div class="col-12 col-md-3 my-auto text-center" style="padding-top: 30px; padding-bottom: 30px;">
+            <div class="searchItem mx-auto"></div>
+            <p>Search for items</p>
+        </div>
+        <div class="col-12 col-md-3 my-auto text-center" style="padding-top: 30px; padding-bottom: 30px;">
+            <div class="contactSeller mx-auto"></div>
+            <p>Contact seller</p>
+        </div>
+        <div class="col-12 col-md-3 my-auto text-center" style="padding-top: 30px; padding-bottom: 30px;">
+            <div class="Transact mx-auto"></div>
+            <p>Arrange transaction</p>
+        </div>
+    </div>
+</section>
+   
+	
 
 {% endblock %}
+
+<section class="container" style="background-color: #f8f9fa;">
+    <div class="container item_display">
+        <div id="home" class="row justify-content-start" style="padding-top: 50px;">
+            
+            {% for product in products %}
+                    <div class="col-lg-3 col-sm-6 mb-4">
+                        <div class="card h-60">
+                            <div>
+                                <a href="/selected-product/{{ product.id }}">          
+                                <img class="card-img-top imageHeight img-fluid" src="{{ product.product_photoURL }}" alt="Profile photo">
+                                </a>    
+                            </div>
+                            <div class="card-body" style="padding-top: 5px; padding-bottom: 5px;">
+                                <h5 class="card-title" style="margin-bottom: 5px;">
+                                    {{product.product_name}}
+                                </h5>
+                                <h6>
+                                    {{product.product_price}}
+                                </h6>
+                            </div>
+                        </div>
+                    </div>
+            {% endfor %}
+        </div>
+    </div>    
+</section>

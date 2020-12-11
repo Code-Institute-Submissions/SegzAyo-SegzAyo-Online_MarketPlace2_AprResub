@@ -7,7 +7,7 @@
     </div>
     <form id="searchForm" class="row searchForm justify-content-center">
         <input id="word" name="word" type="text" class=" form-control form-control-sm col-8 col-xs-6 col-md-4 col-lg-5 center-align my-auto validate" required>
-        <button type="submit" class="btn btn-sm btn-dark col-3 col-md-2 col-lg-1 center-align my-auto">
+        <button type="submit" id="searchedResult" class="btn btn-sm btn-dark col-3 col-md-2 col-lg-1 center-align my-auto">
         Search <i class="fas-fa-sign-in-alt"></i>
         </button>
     </form>
@@ -27,21 +27,18 @@
     </ul>
 </section>
 <section class="container" style="background-color: #f8f9fa;">
-    <div class="row">
-                <h2 class="Listed_Title col-12 text-center">Listed items</h2>
-            </div>
+                
     <div class="container item_display">
         <div id="home" class="row justify-content-start" style="padding-top: 50px;">
-            
+            <h2 class="Listed_Title col-12 text-center">Listed items</h2>  
             {% for product in products %}
                     <div class="col-lg-3 col-sm-6 mb-4">
                         <div class="card h-60">
-                        <div>
-                            <a href="/selected-product/{{ product.id }}">          
-                            <img class="card-img-top imageHeight img-fluid" src="{{ product.product_photoURL }}" alt="">
-                            </a>    
-
-                        </div>
+                            <div>
+                                <a href="/selected-product/{{ product.id }}">          
+                                <img class="card-img-top imageHeight img-fluid" src="{{ product.product_photoURL }}" alt=" Item photo">
+                                </a>    
+                            </div>
                             <div class="card-body" style="padding-top: 5px; padding-bottom: 5px;">
                                 <h5 class="card-title" style="margin-bottom: 5px;">
                                     {{product.product_name}}
@@ -57,6 +54,7 @@
     </div>    
 </section>
 <section class="container">
+    <a href="#searchedResult"></a>
     <div id="results" style="display: none" class="row justify-content-start">
         <div class="col-12 text-center">
             <h2 class="Titles">Searched result</h2>
@@ -100,12 +98,6 @@
 </section>
 {% endblock %} 
 
-
-
-
-
-
-
-
-
-
+<div class="row">
+                <h2 class="Listed_Title col-12 text-center">Listed items</h2>
+            </div>

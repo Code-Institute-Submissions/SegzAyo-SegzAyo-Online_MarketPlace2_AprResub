@@ -35,11 +35,6 @@
                         </button>
                     <div class="collapse navbar-collapse" id="navbarResponsive">
                         <ul class="navbar-nav ml-auto">
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ url_for('get_products') }}">Home
-                                    <span class="sr-only">(current)</span>
-                                </a>
-                            </li>
                             {% set user_id = session["user_id"]%}
                             {% if session["user"] %}
                             <li class="nav-item">
@@ -98,33 +93,16 @@
       <!-- Grid column -->
       <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
         <h6 class=" mb-4 footer-brand">marketSquare</h6>
-        <p>Here you can use rows and columns to organize your footer content. Lorem ipsum dolor sit amet,
-          consectetur
-          adipisicing elit.</p>
+        <p>Marketsquare is an online market place designed to bridge the gap between buyers and 
+sellers by providing a website where individuals, retail, and wholesale stores can 
+advertise their products.</p>
       </div>
       <!-- Grid column -->
 
       <hr class="w-100 clearfix d-md-none">
 
       <!-- Grid column -->
-      <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
-        <h6 class="text-uppercase mb-4 font-weight-bold">Categories</h6>
-        <p>
-          <a href="#!">Electronics</a>
-        </p>
-        <p>
-          <a href="#!">Household</a>
-        </p>
-        <p>
-          <a href="#!">Furniture</a>
-        </p>
-        <p>
-          <a href="#!">Cars</a>
-        </p>
-        <p>
-          <a href="#!">Computers</a>
-        </p>
-      </div>
+      
       <!-- Grid column -->
 
       <hr class="w-100 clearfix d-md-none">

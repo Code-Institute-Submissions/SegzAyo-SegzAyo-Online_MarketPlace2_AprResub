@@ -38,13 +38,16 @@
                                 {{product.product_name}}
                             </h5>
                             <h6>
-                                {{product.product_price}}
+                                Price: {{product.product_price}}
                             </h6>
                             <p>
-                                 {{product.product_description}}
+                                {{product.product_description}}
                             </p>
                             <p>
-                                {{ product.seller_id.seller_name }}
+                                Vendor: {{ product.seller_id.seller_name }}
+                            </p>
+                            <p>
+                                Phone: {{ product.seller_id.seller_phone }}
                             </p>
                         </div>
                     </div>

@@ -13,53 +13,41 @@
     </form>
 </section>
 <div id="update">
-    <h3 class="center-align Titles">Update profile</h3>
-    <div class="row">
-        <form class="col s12 m8 offset-m2"  action="{{ url_for('update_product', productId=product.id) }}" method="POST"  enctype="multipart/form-data">
-        <div class="card-panel">
+    <div class="card row justify-content-center">
+    <h3 class="mx-auto Titles">Update profile</h3>
+        <div class="card-body mx-auto col-10 col-md-4">
+        <form action="{{ url_for('update_product', productId=product.id) }}" method="POST"  enctype="multipart/form-data">
         <!---- Update seller_name-->
-            <div class="row">
-                <div class="input-field col s12">
-                    <i class="fas fa-user-plus prefix light-blue-text text-darken-4"></i>
+            <div class="card-panel">
+                <div class="md-form">
+                    <label for="product_name">Name</label>
                     <input id="product_name" name="product_name" type="text" 
                     placeholder="{{product.product_name}}" class="validate" required>
-                    <label for="product_name">Name</label>
                 </div>
-            </div>
             <!---- Update seller_email-->
-            <div class="row">
-                <div class="input-field col s12">
-                    <i class="fas fa-user-plus prefix light-blue-text text-darken-4"></i>
+                <div class="md-form">
+                    <label for="product_price">Price</label>
                     <input id="product_price" name="product_price" type="text"
                     placeholder="{{product.product_price}}" class="validate" required>
-                    <label for="product_price">Price</label>
                 </div>
-            </div>
             <!---- Update seller_password-->
-            <div class="row">
-                <div class="input-field col s12">
-                    <i class="fas fa-user-lock prefix light-blue-text text-darken-4"></i>
+                <div class="md-form">
+                    <label for="product_description">Description</label>
                     <input id="product_description" name="product_description" type="text" 
                     placeholder="{{product.product_description}}" class="validate" required>
-                    <label for="product_description">Description</label>
+                   
                 </div>
-        </div>
         <!----Update seller_phone-->
-            <div class="row">
-                <div class="input-field col s12">
-                    <i class="fas fa-user-plus prefix light-blue-text text-darken-4"></i>
+                <div class="md-form">
+                    <label for="photo">Photo</label>
                     <input id="photo" name="photo" type="file"
                     placeholder="{{product.photo_photoURL}}" class="validate">
-                    <label for="photo">Photo</label>
                 </div>
-            </div>
-            </div>
         <!---- Update button-->
-        <div class="row">
-            <button type="submit" class="col s12 btn-large light-blue darken-4 text-shadow">
-                Register <i class="fas-fa-sign-in-alt"></i>
-            </button>
-        </div>
+                <button type="submit" class="btn btn-sm btn-dark">
+                    Register
+                </button>
+            </div>
         </div>
         </form>
     </div>
@@ -82,3 +70,53 @@
     </div>
 </section>
 {% endblock %}
+
+<div class="card row">
+        <h3 class="mx-auto Titles">Update profile</h3>
+        <div class="card-body mx-auto col-10 col-md-4">
+            <form action="" id="updateForm">
+            <!---- Update seller_name-->
+                    <div class="md-form">
+                        <label for="seller_name">Username</label>
+                        <input id="seller_name" name="seller_name" type="text" 
+                        value="{{seller.seller_name}}" class="form-control validate" required>
+                    </div>
+                <!---- Update seller_email-->
+                    <div class="md-form">
+                        <label for="email">Email</label>
+                        <input id="email" name="email" type="email"
+                        value="{{seller.seller_email}}" class="form-control validate" required>
+                </div>
+                <!---- Update seller_password-->
+                    <div class="md-form">
+                        <label for="password">Password</label>
+                        <input id="password" name="password" type="password" 
+                        value="{{seller.password_hash}}" class="form-control validate" required> 
+            </div>
+            <!----Update seller_phone-->
+                    <div class="md-form">
+                        <label for="username">Phone</label>
+                        <input id="phone" name="phone" type="text"
+                        value="{{seller.seller_phone}}" class="form-control validate" required>
+                </div>
+                <!----Update seller_city-->
+                    <div class="md-form">
+                        <label for="city">City</label>
+                        <input id="city" name="city" type="text"
+                        value="{{seller.seller_city}}" class="form-control validate" required> 
+                </div>
+                <div class="md-form">
+                        <label for="photo">Photo</label>
+                        <input id="photo" name="photo" type="file" class="form-control validate" required> 
+                </div>
+
+                <input type="hidden" id="userId" value="{{seller.id}}"/>
+            <!---- Register button-->
+            <div class="row">
+                <button type="submit" id="updateBtn" class="btn btn-sm btn-dark">
+                    Update profiles <i class="fas-fa-sign-in-alt"></i>
+                </button>
+            </div>
+            </form>
+        </div>
+    </div>

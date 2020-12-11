@@ -135,8 +135,7 @@ so Tina has decided to buy a used laptop for her friend,so;
 * [Google Fonts](https://fonts.google.com/) for font styling.
 * [jQuery](https://jquery.com/) To simplify DOM manipulation.
 * [Font Awasome](https://fontawesome.com/) To incorporate icons.
-* [Apimedic API](https://apimedic.com/news) Provides the data for the web application.
-* [Ginger Framework](https://ginger.amdocs.com/) Provides automation for code re-usability.
+* [Jinja Framework](https://jinja.palletsprojects.com/en/2.11.x/) Used for template execution and code re-usability.
 
 ### Programming Languages
 * HTML
@@ -169,25 +168,12 @@ The test carried out on the functionality of the diagnosis web application inclu
 The above listed functionalities were tested and works as expected.
 
 To test the diagnosis web app, use the following combinations of symptoms:
-* __Test 1__ 
-    * Year of birth:1995 
-    * Sex: female
-    * Symptoms: abdominal pain, fever
-
-* __Test 2__
-    * Year of birth:1990
-    * Sex: male
-    * Symptoms: fever, headache, abdominal pain.
-
-* __Test 3__
-    * Year of birth:1992
-    * Sex: male
-    * Symptoms: back pain, abdominal pain.    
-
 
 ### Limitations
-* Marketsquare . I decided use the Sandbox because the live API is often offline.
-* The clear button only clears the logged symptoms and Diagnosis 
+* Marketsquare does not have location feature therefore can not connect buyer and seller nearby.
+* Marketsquare requires authentication for only buyers therefore there is no chat functionality.
+* There is no shopping cart functionality currently on Marketsquare website.
+
 results, the year of birth and sex remains until page reloads or manually removed.
 * when symptom combinations returns no diagnosis result, there is no message to 
 alert the user.
