@@ -1,8 +1,9 @@
 {% extends "base.html" %}
 {% block content %}
+<!-- LANDING IMAGE-->
 <section class="container-fluid baseContainer">
     <div class="welcomeMessage">
-        <h1 class="Titles">Welcome to <span class="brand_name">marketsquare</span></h1>
+        <h1 class="Titles">Welcome to <span class="brand_name">marketSquare</span></h1>
         <h5>What do you want to buy today</h5>
     </div>
     <form id="searchForm" class="row searchForm justify-content-center">
@@ -32,7 +33,11 @@
         </div>
                 <div class="col-lg-3 col-sm-6 mb-4">
                     <div class="card h-60">
-                        <a href=""><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+                        {% if product.product_photoURL %}
+                            <a href=""><img class="card-img-top" src="{{ product.product_photoURL }}" alt=""></a>
+                        {% else %} 
+                            <a href=""><img class="card-img-top" src="{{ url_for('static', filename='images/16100242721538115828-128.png') }}" alt=""></a>   
+                        {% endif %}    
                         <div class="card-body" style="padding-top: 5px; padding-bottom: 5px;">
                             <h5 class="card-title" style="margin-bottom: 5px;">
                                 {{product.product_name}}

@@ -1,10 +1,12 @@
 {% extends "base.html" %}
 {% block content %}
+<!-- LANDING IMAGE-->
 <section class="container-fluid baseContainer">
     <div class="welcomeMessage">
-        <h1 class="Titles">Welcome to <span class="brand_name">marketsquare</span></h1>
+        <h1 class="Titles">Welcome to <span class="brand_name">marketSquare</span></h1>
         <h5>What do you want to buy today</h5>
     </div>
+    <!--SEARCH ENGINE FORM-->
     <form id="searchForm" class="row searchForm justify-content-center">
         <input id="word" name="word" type="text" class=" form-control form-control-sm col-8 col-xs-6 col-md-4 col-lg-5 center-align my-auto validate" required>
         <button type="submit" id="searchedResult" class="btn btn-sm btn-dark col-3 col-md-2 col-lg-1 center-align my-auto">
@@ -12,7 +14,7 @@
         </button>
     </form>
 </section>
-
+<!--CATEGORY SECTION-->
 <section class="container-fluid categorySection">
     <ul class="mx-auto" style="padding-left: 0; padding-top:40px; padding-bottom: 40px;">
         <div class="row justify-content-around">
@@ -27,7 +29,7 @@
     </ul>
 </section>
 <section class="container" style="background-color: #f8f9fa;">
-                
+<!--LISTED ITEMS SECTION-->                
     <div class="container item_display">
         <div id="home" class="row justify-content-start" style="padding-top: 50px;">
             <h2 class="Listed_Title col-12 text-center">Listed items</h2>  
@@ -53,6 +55,7 @@
         </div>
     </div>    
 </section>
+<!--SEARCHED RESULT SECTION-->
 <section class="container">
     <a href="#searchedResult"></a>
     <div id="results" style="display: none" class="row justify-content-start">
@@ -79,6 +82,7 @@
         </a>
     </div>
 </section>
+<!--HOW IT WORKS SECTION-->
 <section class="container-fluid">
     <div class="row howToSection justify-content-center">
         <h2 class="col-12 col-md-12 my-auto Titles text-center" style="padding-top: 20px;">How It Works</h2>
@@ -97,7 +101,3 @@
     </div>
 </section>
 {% endblock %} 
-
-<div class="row">
-                <h2 class="Listed_Title col-12 text-center">Listed items</h2>
-            </div>
