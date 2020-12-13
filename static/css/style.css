@@ -86,7 +86,8 @@ body {
 }
 
 .item_display {
-    overflow: scroll;
+    height: 500px;
+    overflow: auto;
 }
 
 .howToSection {

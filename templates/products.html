@@ -30,8 +30,8 @@
 </section>
 <section class="container" style="background-color: #f8f9fa;">
 <!--LISTED ITEMS SECTION-->                
-    <div class="container item_display">
-        <div id="home" class="row justify-content-start" style="padding-top: 50px;">
+    <div id="home" class="container">
+        <div class="row justify-content-start item_display" style="padding-top: 50px;">
             <h2 class="Listed_Title col-12 text-center">Listed items</h2>  
             {% for product in products %}
                     <div class="col-lg-3 col-sm-6 mb-4">
@@ -53,16 +53,16 @@
                                     {{product.product_price}}
                                 </h6>
                             </div>
-                        </div>
+                        </div>                        
                     </div>
             {% endfor %}
         </div>
     </div>    
 </section>
 <!--SEARCHED RESULT SECTION-->
-<section class="container">
+<section id="results" class="container">
     <a href="#searchedResult"></a>
-    <div id="results" style="display: none" class="row justify-content-start">
+    <div  style="display: none" class="row justify-content-start">
         <div class="col-12 text-center">
             <h2 class="Titles">Searched result</h2>
         </div>

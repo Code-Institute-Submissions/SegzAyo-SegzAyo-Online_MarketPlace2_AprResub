@@ -25,7 +25,7 @@
 ### 6.Deployment
 ### 7.Credits
 
-![alt text](assets/images/Banner.png)
+![alt text](static/images/Homescreen.png)
 Marketsquare is an online market place designed to bridge the gap between buyers and 
 sellers by providing a website where individuals, retail, and wholesale stores can 
 advertise their products. Marketsquare provides the convenience of searching products
@@ -71,16 +71,16 @@ so Tina has decided to buy a used laptop for her friend,so;
 
 **Fonts**
 * Open Sans
-* Roboto
+* Bellota
+* Pacifico
 
 **Colour**
 ![alt text](assets/images/Hope-Diagnostics-colour-profile.png)
 
 **WireFrame**
 * Mobile view
-![alt text](assets/wireframe/Mobile-view.png)
-![alt text](assets/wireframe/Home-bg.png)
-![alt text](assets/wireframe/Diagnosis-bg.png)
+![alt text](static/images/Home_page-20.jpg)
+![alt text](static/Mobile_view.jpg)
 
 
 
