@@ -94,7 +94,13 @@
                 <div class="col-lg-3 col-sm-6 mb-4">
                     <div class="card-deck">
                         <div class="card h-60">
-                            <a href="#"><img class="card-img-top imageHeight img-fluid" src="{{ product.product_photoURL }}" alt=" Item photo"/></a>
+                            <a href="#">
+                            {% if product.product_photoURL %}     
+                                <img class="card-img-top imageHeight img-fluid" src="{{ product.product_photoURL }}" alt=" Item photo"/>
+                            </a>
+                            {% else %}
+                                <img class="card-img-top imageHeight img-fluid" src="{{ url_for('static', filename='images/blank-img.jpg') }}" alt=" Item photo">
+                            {% endif %}    
                             <div class="card-body" style="padding-top: 5px; padding-bottom: 5px;">
                                 <h5 class="card-title" style="margin-bottom: 5px;">
                                     {{product.product_name}}
