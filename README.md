@@ -75,7 +75,7 @@ so Tina has decided to buy a used laptop for her friend,so;
 * Pacifico
 
 **Colour**
-![alt text](assets/images/Hope-Diagnostics-colour-profile.png)
+![alt text](static/color_scheme.png)
 
 **WireFrame**
 * Mobile view
@@ -89,17 +89,17 @@ so Tina has decided to buy a used laptop for her friend,so;
 ### Existing Features
 * __Navbar__ features on every page of the website and contains the brand name links to homepage, menu-links to register 
     and login pages and also navigation around the website.
-![alt text](assets/images/Navbar.png)
+![alt text](static/Navbar.png)
 * __Footer__ features on all the pages and also contains navigation links around the website, social media icons, 
     category buttons and links to register and login pages.
-![alt text](assets/images/footer.png)
+![alt text](static/images/footer.png)
 * __Home page__ contains the landing image where the welcome message and also the search engine for visitors 
     to search for items they want to buy.
     Next on the home page is the category section which features the buttons of existing categories that buyers 
     can use to filter the items displaying to a specific category.
     Also featured on the home page is the listed items section where products and items listed for scale
     is displayed before a search is carried out.
-![alt text](assets/images/footer.png)    
+![alt text](static/images/Home_page-20.jpg)    
     Next to the listed items section is How it works section explaining in three steps how the website works
 * __User profile page__ contains the information and profile picture of a registered vendor with an update 
     button that allows the vendor to update personal information, also on the page is the items listed by 
@@ -108,16 +108,16 @@ so Tina has decided to buy a used laptop for her friend,so;
 ![alt text](assets/images/footer.png)    
 * __Item Listing page__ can only be accessed by logged in users and this is where new items or products are 
     uploaded into the database and every item is connected to the vendor through a unique id.
-![alt text](assets/images/footer.png)    
+![alt text](assets/images/Item_listing.png)    
 * __Register page__ is where a new user creates an acount with some information required of the user,such as 
     username, email, password, phone, and city which are recieved through a simple input form.
-![alt text](assets/images/footer.png)    
+![alt text](static/register_page.png)    
 * __Login page__ provides a standard login form for registered user to access their personal profile and 
     listings. The login form requests an email and password for a user to sign in.
-![alt text](assets/images/footer.png)    
+![alt text](static/images/login_page.png)    
 * __Log out__ allows a signed in user to log out of their page therefore clearing their user session and 
     redirecting to the login page.
-![alt text](assets/images/footer.png)
+
 
 
 ## Technology Used
@@ -127,7 +127,7 @@ so Tina has decided to buy a used laptop for her friend,so;
 * __Adobe Photoshop__ used for image resize and compression.
 * __Git__ for version control
 * __Heroku__ for hosting of the website.
-* __Coolors__ for color palette generation.
+* __Coolors.co__ for color palette generation.
 
 
 ### Libraries

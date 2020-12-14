@@ -60,16 +60,18 @@
     </div>    
 </section>
 <!--SEARCHED RESULT SECTION-->
-<section id="results" class="container">
+<section class="container">
     <a href="#searchedResult"></a>
-    <div  style="display: none" class="row justify-content-start">
+    <div id="results" style="display: none" class="row justify-content-start">
         <div class="col-12 text-center">
             <h2 class="Titles">Searched result</h2>
         </div>
         <a href="#">
             <div class="col-lg-3 col-sm-6 mb-4">
                 <div class="card h-60">
-                    <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+                    <a href="#">
+                        <img class="card-img-top" id="product_photoURL" src="{{ product_photoURL }}" alt="">
+                    </a>
                     <div class="card-body" style="padding-top: 5px; padding-bottom: 5px;">
                         <h5 class="card-title" style="margin-bottom: 5px;">
                             <span id="product_name"></span>
