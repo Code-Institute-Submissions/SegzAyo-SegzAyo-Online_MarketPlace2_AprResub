@@ -3,18 +3,13 @@
 <section class="container-fluid baseContainer">
     <div class="welcomeMessage">
         <h1 class="Titles">Welcome to <span class="brand_name">marketSquare</span></h1>
-        <h5>What do you want to buy today</h5>
+        <h5>Browse items by category</h5>
     </div>
-    <form id="searchForm" class="row searchForm justify-content-center">
-        <input id="word" name="word" type="text" class="form-control col-8 col-xs-6 col-md-4 col-lg-5 center-align my-auto validate" required>
-        <button type="submit" class="btn btn-dark col-3 col-md-2 col-lg-1 center-align my-auto">
-        Search <i class="fas-fa-sign-in-alt"></i>
-        </button>
-    </form>
+    
 </section>
 <section class="container-fluid categorySection">
-    <ul>
-        <div class="row justify-content-center" style="padding-left: 0; padding-top:40px; padding-bottom: 40px;">
+    <ul class="mx-auto" style="padding-left: 0; padding-top:40px; padding-bottom: 40px;">
+        <div class="row justify-content-around">
         {% for category in categories %}
             <div class="col-4 col-md-2 text-center my-auto">
                 <a href="{{url_for('get_categories', category_id=category.id)}}">
@@ -26,14 +21,14 @@
     </ul>
 </section>
 <section class="container" style="background-color: #f8f9fa;">
-    <div id="home" class="row justify-content-start" style="padding-top: 50px;">
+    <div id="home" class="row justify-content-start item_display" style="padding-top: 50px;">
         <div class="col-12 text-center">
             <h2 class="Titles">{{ category.name }} Category</h2>
         </div>
         {% for product in products %}
             <div class="col-lg-3 col-sm-6 mb-4">
                 <div class="card h-60">
-                    <a href="#"><img class="card-img-top imageHeight img-fluid" src="{{ product.product_photoURL }}" alt="" /></a>
+                    <a href="/selected-product/{{ product.id }}"><img class="card-img-top imageHeight img-fluid" src="{{ product.product_photoURL }}" alt="" /></a>
                     <div class="card-body" style="padding-top: 5px; padding-bottom: 5px;">
                         <h5 class="card-title" style="margin-bottom: 5px;">
                             {{product.product_name}}
