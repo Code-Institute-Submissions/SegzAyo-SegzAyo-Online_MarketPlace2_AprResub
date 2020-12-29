@@ -36,10 +36,10 @@
             {% for product in products %}
                     <div class="col-lg-3 col-sm-6 mb-4">
                         <div class="card h-60">
-                            <div>
+                            <div class="">
                                 <a href="/selected-product/{{ product.id }}">
                                 {% if product.product_photoURL %}           
-                                    <img class="card-img-top imageHeight img-fluid" src="{{ product.product_photoURL }}" alt=" Item photo">
+                                    <img class="card-img-top imageHeight img-fluid" src="{{ product.product_photoURL }}" alt=" Item image">
                                 {% else %}
                                     <img class="card-img-top imageHeight img-fluid" src="{{ url_for('static', filename='images/blank-img.jpg') }}" alt=" Item photo">
                                 </a>
@@ -61,31 +61,28 @@
 </section>
 <!--SEARCHED RESULT SECTION-->
 <section class="container">
-    <a href="#searchedResult"></a>
     <div id="results" style="display: none" class="row justify-content-start">
-        <div class="col-12 text-center">
+        <div class="col-12 my-auto text-center">
             <h2 class="Titles">Searched result</h2>
         </div>
-        <a href="#">
-            <div class="col-lg-3 col-sm-6 mb-4">
-                <div class="card h-60">
-                    <a href="#">
-                        <img class="card-img-top" id="product_photoURL" src="{{ product_photoURL }}" alt="">
-                    </a>
-                    <div class="card-body" style="padding-top: 5px; padding-bottom: 5px;">
-                        <h5 class="card-title" style="margin-bottom: 5px;">
-                            <span id="product_name"></span>
-                        </h5>
-                        <h6>
-                            <span id="product_price"></span>
-                        </h6>
-                        <P>
-                            <span id="product_description"></span>
-                        </P>
-                    </div>
+        <div class="col-lg-3 col-sm-6 mb-4">
+            <div class="card h-60">
+                <a href="#">
+                    <img class="card-img-top imageHeight img-fluid" id="product-Image" alt="">
+                </a>
+                <div class="card-body" style="padding-top: 5px; padding-bottom: 5px;">
+                    <h5 class="card-title" style="margin-bottom: 5px;">
+                        <span id="product_name"></span>
+                    </h5>
+                    <h6>
+                        <span id="product_price"></span>
+                    </h6>
+                    <P>
+                        <span id="product_description"></span>
+                    </P>
                 </div>
             </div>
-        </a>
+        </div>
     </div>
 </section>
 <!--HOW IT WORKS SECTION-->

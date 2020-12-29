@@ -46,6 +46,7 @@ class ProductListing(Document):
         return {
             "product_name": self.product_name,
             "product_description": self.product_description,
-            "product_price": self.product_price
+            "product_price": self.product_price,
+            "product_photoURL": self.product_photoURL
         }
 

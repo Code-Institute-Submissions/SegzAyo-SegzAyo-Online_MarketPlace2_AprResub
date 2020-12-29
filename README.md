@@ -75,12 +75,13 @@ so Tina has decided to buy a used laptop for her friend,so;
 * Pacifico
 
 **Colour**
-![alt text](static/images/color_scheme.png)
+![alt text](static/images/Color_scheme.png)
 
 **WireFrame**
 * Mobile view
-![alt text](static/images/Home_page-20.jpg)
-![alt text](static/Mobile_view.jpg)
+![alt text](static/images/Home_page_Wire-20.jpg)
+* Desktop view
+![alt text](static/images/Mobile_view-20.jpg)
 
 
 
@@ -105,13 +106,13 @@ so Tina has decided to buy a used laptop for her friend,so;
     button that allows the vendor to update personal information, also on the page is the items listed by 
     the vendor which also gives the vendor the ability to update or delete a listed item. a vendor will only 
     access this page on registering or login.
-![alt text](assets/images/footer.png)
+![alt text](static/images/Profile_page.png)
 * __Item Listing page__ can only be accessed by logged in users and this is where new items or products are 
     uploaded into the database and every item is connected to the vendor through a unique id.
-![alt text](assets/images/Item_listing.png)
+![alt text](static/images/Item_listing.png)
 * __Register page__ is where a new user creates an acount with some information required of the user,such as 
     username, email, password, phone, and city which are recieved through a simple input form.
-![alt text](static/register_page.png)
+![alt text](static/images/register_page.png)
 * __Login page__ provides a standard login form for registered user to access their personal profile and 
     listings. The login form requests an email and password for a user to sign in.
 ![alt text](static/images/login_page.png)

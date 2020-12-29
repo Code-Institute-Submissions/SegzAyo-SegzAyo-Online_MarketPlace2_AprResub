@@ -36,6 +36,10 @@ body {
     text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
 }
 
+.flashes{
+    margin-bottom: auto;
+}
+
 .Listed_Title {
     font-family: "Bellota Text";
     font-weight: bold;
@@ -126,9 +130,14 @@ body {
 }
 
 .imageHeight {
-    display: flex;
-    height: 30vh;
+    object-fit: cover;
 }
+
+imageHeight {
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
 
 .card {
     background-color: #e9ecef;

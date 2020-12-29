@@ -27,7 +27,7 @@
     <header>
         <body>
             <!-- Navigation-->
-            <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
                 <div class="container">
                     <a class="navbar-brand" href="{{ url_for('get_products') }}">marketSquare</a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -69,8 +69,8 @@
         {% with messages = get_flashed_messages() %}
             {% if messages %}
                 {% for message in messages %}
-                    <div class="row flashes">
-                        <h4 class="light-blue lighten-4 center-align">{{ message }}</h4>
+                    <div class="row justify-content-center alert-success flashes">
+                        <h4 class="text-center">{{ message }}</h4>
                     </div>
                 {% endfor %}
             {% endif %}

@@ -29,6 +29,7 @@ def get_products():
     categories_data = Category.objects().all()
     return render_template("products.html", products=products_data, categories=categories_data)
 
+
 @app.route("/categories/<category_id>/products")
 def get_categories(category_id):
     category_products = ProductListing.objects(category_id=category_id).all()
@@ -173,8 +174,6 @@ def search():
     Search_word = request.args.get("product_name")
     products = ProductListing.objects.search_text(Search_word).all()
     data = [product.serialize for product in products ]
-    print(data)
-    print("testing text")
 
     return jsonify(data)
     
