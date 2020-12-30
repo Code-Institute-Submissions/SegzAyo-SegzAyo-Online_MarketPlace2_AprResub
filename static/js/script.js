@@ -38,7 +38,9 @@ searchForm.addEventListener('submit', (e) => {
             document.getElementById("product_description").innerHTML = product["product_description"]
             document.getElementById("product_price").innerHTML = product["product_price"]
             document.getElementById("product-Image").src = product["product_photoURL"]
-
+            console.log(product)
+            document.getElementById("link").href = "/selected-product/"+ product["id"]
+            
         }
     })
 })

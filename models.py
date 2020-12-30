@@ -47,6 +47,7 @@ class ProductListing(Document):
             "product_name": self.product_name,
             "product_description": self.product_description,
             "product_price": self.product_price,
-            "product_photoURL": self.product_photoURL
+            "product_photoURL": self.product_photoURL,
+            "id": str(self.id)
         }
 
