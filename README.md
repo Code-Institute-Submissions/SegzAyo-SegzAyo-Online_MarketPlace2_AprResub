@@ -1,30 +1,3 @@
-
-
-## Table of Contents
-
-## 1.UX
-### Visitir's Goal
-### Business Goal
-### Design Choice
-### Wireframe
-
-
-## 2.Features
-### Homepage
-### Register page
-### Login page
-### Profile page
-### Profile update page
-### Search engine
-### Category section
-### Selected Item page 
-
-### 3.Information Architecture
-### 4.Technologies Used
-### 5.Testing
-### 6.Deployment
-### 7.Credits
-
 ![alt text](static/images/Homescreen.png)
 Marketsquare is an online market place designed to bridge the gap between buyers and 
 sellers by providing a website where individuals, retail, and wholesale stores can 
