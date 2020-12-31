@@ -143,7 +143,7 @@ users of this website can create, read, update and delete data in the database.
 Hope Diagnostics is deployed and hosted on github pages.
 At the setup stage of this project, it was connected to Heroku such that every Git push automatically updates on Heroku.
 Files required by Heroku such as Procfile and requirements.txt have been added.
-
+On the deployment page, GitHub is selected as the method, then deploy button was clicked for it to build and generate url.
 
 ## Credits
 ### Media
@@ -155,7 +155,6 @@ Photo by Andrea Piacquadio from Pexels
 Photo by energepic.com from Pexels
 Photo by Cytonn Photography from Pexels
 Photo by Andrea Piacquadio from Pexels
-
 
 ## Acknowledgement
 
