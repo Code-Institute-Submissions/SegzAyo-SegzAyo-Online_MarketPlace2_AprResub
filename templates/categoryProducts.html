@@ -1,22 +1,20 @@
-{% extends "base.html" %}
-{% block content %}
+{% extends "base.html" %} {% block content %}
 <section class="container-fluid baseContainer">
     <div class="welcomeMessage">
         <h1 class="Titles">Welcome to <span class="brand_name">marketSquare</span></h1>
-        <h5>Browse items by category</h5>
+        <h5 style="text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);">Browse items by category</h5>
     </div>
-    
 </section>
 <section class="container-fluid categorySection">
-    <ul class="mx-auto" style="padding-left: 0; padding-top:40px; padding-bottom: 40px;">
+    <ul class="mx-auto" style="padding-left: 0; padding-top: 40px; padding-bottom: 40px;">
         <div class="row justify-content-around">
-        {% for category in categories %}
+            {% for category in categories %}
             <div class="col-4 col-md-2 text-center my-auto">
                 <a href="{{url_for('get_categories', category_id=category.id)}}">
-                    <button type="button" class="btn btn-sm btn-dark">{{category.name}}</button> 
+                    <button type="button" class="btn btn-sm btn-dark">{{category.name}}</button>
                 </a>
             </div>
-        {% endfor %}    
+            {% endfor %}
         </div>
     </ul>
 </section>
@@ -26,26 +24,26 @@
             <h2 class="Titles">{{ category.name }} Category</h2>
         </div>
         {% for product in products %}
-            <div class="col-lg-3 col-sm-6 mb-4">
-                <div class="card h-60">
-                    <a href="/selected-product/{{ product.id }}">
-                        {% if product.product_photoURL %} 
-                            <img class="card-img-top imageHeight img-fluid" src="{{ product.product_photoURL }}" alt="" />
-                        {% else %}
-                            <img class="card-img-top imageHeight img-fluid" src="{{ url_for('static', filename='images/blank-img.jpg') }}" alt="" />
-                        {% endif %}    
-                    </a>
-                    <div class="card-body" style="padding-top: 5px; padding-bottom: 5px;">
-                        <h5 class="card-title" style="margin-bottom: 5px;">
-                            {{product.product_name}}
-                        </h5>
-                        <h6>
-                            {{product.product_price}}
-                        </h6>
-                    </div>
-                </div>       
+        <div class="col-lg-3 col-sm-6 mb-4">
+            <div class="card h-60">
+                <a href="/selected-product/{{ product.id }}">
+                    {% if product.product_photoURL %}
+                    <img class="card-img-top imageHeight img-fluid" src="{{ product.product_photoURL }}" alt="" />
+                    {% else %}
+                    <img class="card-img-top imageHeight img-fluid" src="{{ url_for('static', filename='images/blank-img.jpg') }}" alt="" />
+                    {% endif %}
+                </a>
+                <div class="card-body" style="padding-top: 5px; padding-bottom: 5px;">
+                    <h5 class="card-title" style="margin-bottom: 5px;">
+                        {{product.product_name}}
+                    </h5>
+                    <h6>
+                        {{product.product_price}}
+                    </h6>
+                </div>
+            </div>
         </div>
-        {% endfor %} 
+        {% endfor %}
     </div>
 </section>
 <section class="container-fluid">
@@ -65,34 +63,5 @@
         </div>
     </div>
 </section>
-   
-	
 
 {% endblock %}
-
-<section class="container" style="background-color: #f8f9fa;">
-    <div class="container item_display">
-        <div id="home" class="row justify-content-start" style="padding-top: 50px;">
-            
-            {% for product in products %}
-                    <div class="col-lg-3 col-sm-6 mb-4">
-                        <div class="card h-60">
-                            <div>
-                                <a href="/selected-product/{{ product.id }}">          
-                                <img class="card-img-top imageHeight img-fluid" src="{{ product.product_photoURL }}" alt="Profile photo">
-                                </a>    
-                            </div>
-                            <div class="card-body" style="padding-top: 5px; padding-bottom: 5px;">
-                                <h5 class="card-title" style="margin-bottom: 5px;">
-                                    {{product.product_name}}
-                                </h5>
-                                <h6>
-                                    {{product.product_price}}
-                                </h6>
-                            </div>
-                        </div>
-                    </div>
-            {% endfor %}
-        </div>
-    </div>    
-</section>

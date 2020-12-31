@@ -1,64 +1,50 @@
-{% extends "base.html" %}
-{% block content %}
+{% extends "base.html" %} {% block content %}
 <!-- LANDING IMAGE-->
 <section class="container-fluid baseContainer">
     <div class="welcomeMessage">
         <h1 class="Titles">Welcome to <span class="brand_name">marketSquare</span></h1>
-        <h5>What do you want to buy today</h5>
+        <h5 style="text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);">What do you want to buy today</h5>
     </div>
     <form id="searchForm" class="row searchForm justify-content-center">
-        <input id="word" name="word" type="text" class=" form-control form-control-sm col-8 col-xs-6 col-md-4 col-lg-5 center-align my-auto validate" required>
-        <button type="submit" class="btn btn-sm btn-dark col-3 col-md-2 col-lg-1 center-align my-auto">
-        Search <i class="fas-fa-sign-in-alt"></i>
-        </button>
+        <input id="word" name="word" type="text" class="form-control form-control-sm col-8 col-xs-6 col-md-4 col-lg-5 center-align my-auto validate" required />
+        <button type="submit" class="btn btn-sm btn-dark col-3 col-md-2 col-lg-1 center-align my-auto">Search <i class="fas-fa-sign-in-alt"></i></button>
     </form>
 </section>
-<section class="container-fluid categorySection">
-    <ul>
-        <div class="row justify-content-center" style="padding-top: 100px">
-        {% for category in categories %}
-            <div class="col-4 col-md-2 text-center my-auto">
-                <a href="{{url_for('get_categories', category_id=category.id)}}">
-                    <button type="button" class="btn btn-sm btn-dark">{{category.name}}</button> 
-                </a>
-            </div>
-        {% endfor %}    
-        </div>
-    </ul>
-</section>
+<!-----SELECTED ITEM-->
 <section class="container justify-content-center">
-    <div id="home" class="row justify-content-center" style="padding-top: 50px;" >
-        <div class="col-12 text-center">
-            <h2 class="Titles">Selected item</h2>
+    <div id="home" class="row justify-content-center" style="padding-top: 50px;">
+        <div class="col-12">
+            <h2 class="Titles text-center">Selected item</h2>
         </div>
-                <div class="col-lg-3 col-sm-6 mb-4">
-                    <div class="card h-60">
-                        {% if product.product_photoURL %}
-                            <a href=""><img class="card-img-top" src="{{ product.product_photoURL }}" alt=""></a>
-                        {% else %} 
-                            <a href=""><img class="card-img-top" src="{{ url_for('static', filename='images/blank-img.jpg') }}" alt=""></a>   
-                        {% endif %}    
-                        <div class="card-body" style="padding-top: 5px; padding-bottom: 5px;">
-                            <h5 class="card-title" style="margin-bottom: 5px;">
-                                {{product.product_name}}
-                            </h5>
-                            <h6>
-                                Price: {{product.product_price}}
-                            </h6>
-                            <p>
-                                {{product.product_description}}
-                            </p>
-                            <p>
-                                Vendor: {{ product.seller_id.seller_name }}
-                            </p>
-                            <p>
-                                Phone: {{ product.seller_id.seller_phone }}
-                            </p>
-                        </div>
-                    </div>
+        <div class="col-12">
+            <div class="card h-60">
+                {% if product.product_photoURL %}
+                <a href=""><img class="card-img-top" src="{{ product.product_photoURL }}" alt="" /></a>
+                {% else %}
+                <a href=""><img class="card-img-top" src="{{ url_for('static', filename='images/blank-img.jpg') }}" alt="" /></a>
+                {% endif %}
+                <div class="card-body" style="padding-top: 5px; padding-bottom: 5px;">
+                    <h5 class="card-title" style="margin-bottom: 5px;">
+                        {{product.product_name}}
+                    </h5>
+                    <h6>
+                        Price: {{product.product_price}}
+                    </h6>
+                    <p>
+                        {{product.product_description}}
+                    </p>
+                    <p>
+                        Vendor: {{ product.seller_id.seller_name }}
+                    </p>
+                    <p>
+                        Phone: {{ product.seller_id.seller_phone }}
+                    </p>
                 </div>
+            </div>
+        </div>
     </div>
 </section>
+<!------HOW IT WORKS SECTION-->
 <section class="container-fluid">
     <div class="row howToSection justify-content-center">
         <h2 class="col-12 col-md-12 my-auto Titles text-center" style="padding-top: 20px;">How It Works</h2>
@@ -76,4 +62,4 @@
         </div>
     </div>
 </section>
-{% endblock %} 
+{% endblock %}

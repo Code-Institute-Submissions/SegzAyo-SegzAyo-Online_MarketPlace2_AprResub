@@ -1,17 +1,11 @@
 {% extends "base.html" %}
 {% block content %}
-
+<!-------LANDING IMAGE----->
 <section class="container-fluid baseContainer">
     <div class="welcomeMessage">
         <h1 class="Titles">Welcome to <span class="brand_name">marketSquare</span></h1>
-        <h5>What do you want to buy today</h5>
+        <h5 style="text-shadow: 2px 4px 3px rgba(0,0,0,0.3);">Your one stop for everything you are looking for</h5>
     </div>
-    <form id="searchForm" class="row searchForm justify-content-center">
-        <input id="word" name="word" type="text" class=" form-control form-control-sm col-8 col-xs-6 col-md-4 col-lg-5 center-align my-auto validate" required>
-        <button type="submit" class="btn btn-sm btn-dark col-3 col-md-2 col-lg-1 center-align my-auto">
-        Search <i class="fas-fa-sign-in-alt"></i>
-        </button>
-    </form>
 </section>
 <section>
     <div class="row justify-content-center" style="height:300px;">
@@ -23,7 +17,6 @@
             <h6>{{ seller.seller_city }}</h6>
             <h6>{{ seller.seller_email }}</h6>
             <h6>{{ seller.seller_phone }}</h6>
-        <button class="submit btn btn-dark" id="edit_profile">Edit profile</button>
     </div>
     </div>
 </section>

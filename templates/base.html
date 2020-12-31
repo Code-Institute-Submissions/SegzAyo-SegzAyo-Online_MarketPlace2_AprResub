@@ -54,23 +54,19 @@
                                 <a class="nav-link" href="{{ url_for('register') }}">Register</a>
                             </li>
                             {% endif %}
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">About</a>
-                            </li>
-
                         </ul>
                     </div>
                 </div>
             </nav>
 
-<!-------mobile side navbar-->
+<!-------MOBILE SIDE BAR-->
     <section>
         <!-- flash messages -->
         {% with messages = get_flashed_messages() %}
             {% if messages %}
                 {% for message in messages %}
                     <div class="row justify-content-center alert-success flashes">
-                        <h4 class="text-center">{{ message }}</h4>
+                        <h6 class="text-center">{{ message }}</h6>
                     </div>
                 {% endfor %}
             {% endif %}
@@ -80,7 +76,7 @@
         {% block content %}    
         {% endblock %}
     </main>
-<!-- Footer -->
+<!--FOOTER -->
 <footer class="container-fluid page-footer font-small mdb-color pt-4 text-light bg-dark">
 
   <!-- Footer Links -->
@@ -128,9 +124,6 @@ advertise their products.</p>
             <a class="text-light" href="{{ url_for('login') }}">Log in</a>
         </p>
          {% endif %}
-        <p>
-            <a class="text-light" href="about.html">About</a>
-        </p>
       </div>
       <!-- Grid column -->
       <hr class="w-100 clearfix d-md-none">

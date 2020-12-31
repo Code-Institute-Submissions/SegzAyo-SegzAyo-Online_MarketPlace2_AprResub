@@ -1,43 +1,39 @@
-{% extends "base.html" %}
-{% block content %}
+{% extends "base.html" %} {% block content %}
 <!-- LANDING IMAGE-->
 <section class="container-fluid baseContainer">
     <div class="welcomeMessage">
         <h1 class="Titles">Welcome back to <span class="brand_name">marketSquare</span></h1>
     </div>
 </section>
+<!-----SIGN IN SECTION-->
 <div class="card row">
     <div class="card-body mx-auto col-10 col-md-4">
         <form method="POST" action="{{ url_for('login') }}">
-        <p class="h4 text-center py-4">Sign in</p>
-        <!---- Email input-->  
+            <p class="h4 text-center py-4">Sign in</p>
+            <!---- Email input-->
             <div class="md-form">
                 <label class="font-weight-light" for="seller_name">Email</label>
-                <input class="form-control validate" id="email" name="email" type="text" minlength="5"
-                    placeholder="email" required>
-                
+                <input class="form-control validate" id="email" name="email" type="text" minlength="5" placeholder="email" required />
             </div>
             <!---- Password input-->
             <div class="md-form">
                 <label class="font-weight-light" for="email">Password</label>
-                <input class="form-control" id="password" name="password" type="password" minlength="5"
-                    class="validate" required>
+                <input class="form-control" id="password" name="password" type="password" minlength="5" class="validate" required />
             </div>
-        <!---- Register button-->
+            <!---- Register button-->
             <div class="text-center py-4 mt-3">
-                <button type="submit" class="btn btn-dark">
-                    Sign in <i class="fas-fa-sign-in-alt"></i>
-                </button>
+                <button type="submit" class="btn btn-dark">Sign in <i class="fas-fa-sign-in-alt"></i></button>
             </div>
         </form>
         <div class="mx-auto col-10 col-md-12">
             <p class="center-align text-center">
                 New here?
-                 <a href="{{ url_for('register') }}" class="light-blue-text text-darken-4">Sign up</a>
+                <a href="{{ url_for('register') }}" class="light-blue-text text-darken-4">Sign up</a>
             </p>
         </div>
-    </div>    
+    </div>
 </div>
+<!--HOW IT WORKS SECTION-->
 <section class="container-fluid">
     <div class="row howToSection justify-content-center">
         <h2 class="col-12 col-md-12 my-auto Titles text-center" style="padding-top: 20px;">How It Works</h2>
@@ -55,5 +51,5 @@
         </div>
     </div>
 </section>
-
 {% endblock %}
+

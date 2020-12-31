@@ -1,14 +1,15 @@
 {% extends "base.html" %}
 {% block content %}
+<!-----LANDING IMAGE-->
 <section class="container-fluid baseContainer">
     <div class="welcomeMessage">
         <h1 class="Titles">Welcome to <span class="brand_name">marketSquare</span></h1>
-        <h5>Your one stop for everything you are looking for</h5>
+        <h5 style="text-shadow: 2px 4px 3px rgba(0,0,0,0.3);">Your one stop for everything you are looking for</h5>
     </div>
     <form id="searchForm" class="row searchForm justify-content-center">
     </form>
 </section>
-
+<!--------USER INFO SECTION-->
 <section>
     <div class="row justify-content-center" id="profile" style="height:300px;">
         <div class="col-6 col-md-4 my-auto">
@@ -29,6 +30,7 @@
     </div>
     </div>
 </section>
+<!------USER UPDATE SECTION-->
 <section class="container" style="background-color: #f8f9fa;">
     <div id="update" style="display: none">
     <h2 id="success"></h2>
@@ -84,7 +86,8 @@
         </div>
     </div>
 </section>
-    <section class="container item_display">
+<!------USER ITEMS SECTION-->
+<section class="container item_display">
         <div id="home" class="row justify-content-start" style="padding-top: 50px;">
             <div class="col-12 text-center">
                 <h2></h2>
@@ -121,7 +124,7 @@
         {% endfor %}
         </div>
     </section>
-
+<!------HOW TO SECTION-->
 <section class="container-fluid">
     <div class="row howToSection justify-content-center">
         <h2 class="col-12 col-md-12 my-auto Titles text-center" style="padding-top: 20px;">How It Works</h2>

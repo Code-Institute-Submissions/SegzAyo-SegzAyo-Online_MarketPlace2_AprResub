@@ -4,18 +4,13 @@
 <section class="container-fluid baseContainer">
     <div class="welcomeMessage">
         <h1 class="Titles">Welcome to <span class="brand_name">marketSquare</span></h1>
-        <h5>What do you want to buy today</h5>
+        <h5 style="text-shadow: 2px 4px 3px rgba(0,0,0,0.3);">What do you want to buy today</h5>
     </div>
-    <form id="searchForm" class="row searchForm justify-content-center">
-        <input id="word" name="word" type="text" class=" form-control form-control-sm col-8 col-xs-6 col-md-4 col-lg-5 center-align my-auto validate" required>
-        <button type="submit" class="btn btn-sm btn-dark col-3 col-md-2 col-lg-1 center-align my-auto">
-        Search <i class="fas-fa-sign-in-alt"></i>
-        </button>
-    </form>
 </section>
+<!-----ITEM UPDATE SECTION-->
 <div id="update">
     <div class="card row justify-content-center">
-    <h3 class="mx-auto Titles">Update profile</h3>
+    <h3 class="mx-auto Titles">Update item</h3>
         <div class="card-body mx-auto col-10 col-md-4">
         <form action="{{ url_for('update_product', productId=product.id) }}" method="POST"  enctype="multipart/form-data">
         <!---- Update seller_name-->
@@ -34,9 +29,10 @@
             <!---- Update seller_password-->
                 <div class="md-form">
                     <label for="product_description">Description</label>
-                    <input id="product_description" name="product_description" type="text" 
+                    <textarea id="product_description" name="product_description" type="text" 
                     placeholder="{{product.product_description}}" class="validate" required>
-                   
+                    </textarea>
+                    
                 </div>
         <!----Update seller_phone-->
                 <div class="md-form">
@@ -52,7 +48,8 @@
         </div>
         </form>
     </div>
-</div>  
+</div>
+<!--HOW IT WORKS SECTION-->
 <section class="container-fluid">
     <div class="row howToSection justify-content-center">
         <h2 class="col-12 col-md-12 my-auto Titles text-center" style="padding-top: 20px;">How It Works</h2>
@@ -71,53 +68,3 @@
     </div>
 </section>
 {% endblock %}
-
-<div class="card row">
-        <h3 class="mx-auto Titles">Update profile</h3>
-        <div class="card-body mx-auto col-10 col-md-4">
-            <form action="" id="updateForm">
-            <!---- Update seller_name-->
-                    <div class="md-form">
-                        <label for="seller_name">Username</label>
-                        <input id="seller_name" name="seller_name" type="text" 
-                        value="{{seller.seller_name}}" class="form-control validate" required>
-                    </div>
-                <!---- Update seller_email-->
-                    <div class="md-form">
-                        <label for="email">Email</label>
-                        <input id="email" name="email" type="email"
-                        value="{{seller.seller_email}}" class="form-control validate" required>
-                </div>
-                <!---- Update seller_password-->
-                    <div class="md-form">
-                        <label for="password">Password</label>
-                        <input id="password" name="password" type="password" 
-                        value="{{seller.password_hash}}" class="form-control validate" required> 
-            </div>
-            <!----Update seller_phone-->
-                    <div class="md-form">
-                        <label for="username">Phone</label>
-                        <input id="phone" name="phone" type="text"
-                        value="{{seller.seller_phone}}" class="form-control validate" required>
-                </div>
-                <!----Update seller_city-->
-                    <div class="md-form">
-                        <label for="city">City</label>
-                        <input id="city" name="city" type="text"
-                        value="{{seller.seller_city}}" class="form-control validate" required> 
-                </div>
-                <div class="md-form">
-                        <label for="photo">Photo</label>
-                        <input id="photo" name="photo" type="file" class="form-control validate" required> 
-                </div>
-
-                <input type="hidden" id="userId" value="{{seller.id}}"/>
-            <!---- Register button-->
-            <div class="row">
-                <button type="submit" id="updateBtn" class="btn btn-sm btn-dark">
-                    Update profiles <i class="fas-fa-sign-in-alt"></i>
-                </button>
-            </div>
-            </form>
-        </div>
-    </div>

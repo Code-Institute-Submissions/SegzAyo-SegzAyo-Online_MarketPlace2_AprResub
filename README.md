@@ -143,7 +143,6 @@ so Tina has decided to buy a used laptop for her friend,so;
 * CSS 
 * Javascript
 * Python
-* Ginger Template
 
 ### Database
 * MongoDB
@@ -154,59 +153,43 @@ The following tools were used to validate and beautify the codes:
 * [Freeformatter](https://www.freeformatter.com/html-formatter.html#ad-output) used to beautify the HTML code.
 * [BeautyTools](http://beautifytools.com/css-validator.php) used to beautify and validate the Javascript and CSS codes.
 
-The navigation of this website has been tested, and every button works with the exception of the social media icon and the About Us page.
-The website responsiveness has also been tested at all screen sizes and it adapts and displays properly.
-The test carried out on the functionality of the diagnosis web application includes:
-* XMLHttpRequest and Response for symptom JSON.
-* User Input Iteration through the symptom JSON.
-* User symptom input autocomplete through iteration of symptom JSON
-* Symptom ID appended into an array from Iteration result.
-* Token auto generator request.
-* User is alerted on symptom typo error.
-* XMLHttpRequest and Response for diagnosis JSON.
-* Diagnosis result returned and displayed on submission.
-
-The above listed functionalities were tested and works as expected.
-
-To test the diagnosis web app, use the following combinations of symptoms:
+The navigation and buttons on this website has been tested, navigations all links to indended pages and the buttons 
+functions as expected.
+The authentication requires an email and password to login, giving access to more functionalities and pages such as user profile,
+update profile, list items, update and deleting of items listed by same user.
+This website database is mongoDB and all the endpoints created to carry out CRUD operations works properly; registered 
+users of this website can create, read, update and delete data in the database.
 
 ### Limitations
-* Marketsquare does not have location feature therefore can not connect buyer and seller nearby.
-* Marketsquare requires authentication for only buyers therefore there is no chat functionality.
+* Marketsquare does not have location feature therefore can not connect buyer and seller based on proximity.
+* Marketsquare requires authentication for only buyers therefore there is no chat functionality between a buyer and seller.
 * There is no shopping cart functionality currently on Marketsquare website.
-
-results, the year of birth and sex remains until page reloads or manually removed.
-* when symptom combinations returns no diagnosis result, there is no message to 
-alert the user.
-* Because of time constraint, the schedule generator API could not be integrated 
-into the website, instead the schedule button links an external schedule generator service.
-* The About us page was not designed
 
 
 ## Deployment
-Hope Diagnostics is deployed and hosted on github pages. 
-From the repository, I clicked setting then selected a theme under the section of github 
-pages. I then wrote about Curryt website then commit the changes. Finally, I added my repository 
-name for it to be searchable.
+Hope Diagnostics is deployed and hosted on github pages.
+At the setup stage of this project, it was connected to Heroku such that every Git push automatically updates on Heroku.
+Files required by Heroku such as Procfile and requirements.txt have been added.
 
 
 ## Credits
-### Content
-* The text "from How it works section" on the home is copied from 
-[Healthcare Direct](https://www.healthdirect.gov.au/symptom-checker)
 ### Media
-* The photos used for this project were obtained from the following links
-    * [Cardiology Doctor](https://epmgaa.media.clients.ellingtoncms.com/img/photos/2016/02/04/Screen_Shot_2016-02-04_at_6.52.32_PM_t750x550.png?d885fc46c41745b3b5de550c70336c1b382931d2)
-    * [General Medicine](https://lincolnplacemedical.ie/team-member/dr-michelle-rodgers/doctor/)
-    * [Psychiatry Doctor](https://nationaltoday.com/doctors-day/)
+* The photos used for this project (with the exception images uploaded by user) were obtained from:
+    * [Pexels](https://www.pexels.com/)
+Credits:
+Photo by Ketut Subiyanto from Pexels
+Photo by Andrea Piacquadio from Pexels
+Photo by energepic.com from Pexels
+Photo by Cytonn Photography from Pexels
+Photo by Andrea Piacquadio from Pexels
+
 
 ## Acknowledgement
 
+Special thanks to my mentor Jonathan Munz for his guidance and advises through this project and also projects.
+I also want to thank my personal tutor Yeku Chetat for his patience, taking time to explain and answer my many questions.
+
 I recieved inspiration and references from the following sources:
-* [Healthcare Direct](https://www.healthdirect.gov.au/symptom-checker)
-* [Mayo Clinic](https://www.mayoclinic.org/)
-* [WebMD](https://symptoms.webmd.com/default.htm)
-* [Isabel](https://symptomchecker.isabelhealthcare.com/)
-* [Quick Autocomplete App With JS & JSON](https://www.youtube.com/watch?v=1iysNUrI3lw)
-* [JavaScript Higher Order Functions & Arrays](https://www.youtube.com/watch?v=rRgD1yVwIvE)
-* [Async JS Crash Course - Callbacks, Promises, Async Await](https://www.youtube.com/watch?v=PoRJizFvM7s)
+* [Hygglo](https://www.hygglo.se/)
+* [Blocket](https://www.blocket.se/)
+* [Jiji](https://jiji.ng/)
