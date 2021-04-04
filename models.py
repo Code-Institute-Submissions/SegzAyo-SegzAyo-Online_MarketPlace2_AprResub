@@ -50,4 +50,3 @@ class ProductListing(Document):
             "product_photoURL": self.product_photoURL,
             "id": str(self.id)
         }
-

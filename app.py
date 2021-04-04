@@ -51,7 +51,7 @@ def register():
         existing_seller = Seller.objects(seller_email=seller_email_v).first()
 
         if existing_seller:
-            flash("Username already exists")
+            flash("User already exists")
             return redirect(url_for("register"))
 
         new_seller = Seller(seller_name=seller_name_v, seller_email=seller_email_v, 
@@ -65,6 +65,9 @@ def register():
         # put the new user into 'session' cookie
         session["user"] = new_seller.seller_name
         session["userId"] = str(new_seller.id)
+
+        print(session)
+        print(new_seller.id)
         flash("Registration Successful!")
         return redirect(
             url_for("update_profile", userId=session["userId"]))
@@ -83,7 +86,7 @@ def login():
             password_valid = existing_seller.check_password(password_v)
             if password_valid:
                session["user"] = existing_seller.seller_name
-               session["user_id"] = str(existing_seller.id)
+               session["userId"] = str(existing_seller.id)
                flash(f"Welcome {existing_seller.seller_name}")
                return redirect(url_for("get_products"))
                return render_template("products.html", seller=existing_seller)
@@ -102,6 +105,8 @@ def login():
 
 @app.route("/users/<userId>", methods=["GET", "PUT"])
 def update_profile(userId):
+    print(session.get('user_id'))
+    print(session.get('userId'))
     seller = Seller.objects(id=userId).first()
     if request.method == "GET":
         sellers_listings = ProductListing.objects(seller_id=seller).all()
@@ -183,13 +188,14 @@ def sign_out():
     # remove user from session cookie
     flash("You have been logged out")
     session.pop("user")
+    session.pop("userId")
     return redirect(url_for("login"))
 
 @app.route("/product/delete/<productId>", methods=["GET"])
 def delete_product(productId):
     delete_item = ProductListing.objects(id=productId).first()
     delete_item.delete()
-    userId = session["user_id"]
+    userId = session["userId"]
     return redirect(url_for("update_profile", userId=userId))    
 
 
@@ -255,8 +261,6 @@ def upload_image(folder, image):
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
-            port=int(os.environ.get("PORT")),
-            debug=False)    
-
-
+            port=os.environ.get("PORT"),            
+            debug=True)  
 
